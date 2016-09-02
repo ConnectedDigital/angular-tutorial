@@ -1,0 +1,17 @@
+.clicked{
+  color:#0000ee;
+
+}
+ul{
+  list-style:none;
+  margin-left: 12px;
+  padding:10px;
+}
+li{
+  cursor: pointer;
+  transition: padding 0.3s;
+}
+li:hover{
+  padding: 5px;
+  color: #00DD00;
+}
