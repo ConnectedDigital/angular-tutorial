@@ -40,7 +40,7 @@ export const firebaseConfig = {
 
 @NgModule({
   bootstrap: [App],
-  declarations: [App,ContactListComponent,ContactViewComponent, ContactFormComponent,Home,PictureDetailComponent],
+  declarations: [App,ContactListComponent,ContactViewComponent, ContactFormComponent,Home,PictureDetailComponent,About],
   imports: [ // An array of modules that you want to others in your application such as the forms or http modules
     AngularFireModule.initializeApp(firebaseConfig),
     BrowserModule,
@@ -55,7 +55,7 @@ export const firebaseConfig = {
     ReactiveFormsModule,
   ],
   providers: [ContactService,PictureService] ,
-  exports:      [  ContactListComponent,ContactViewComponent, ContactFormComponent, Home,PictureDetailComponent,
+  exports:      [  ContactListComponent,ContactViewComponent, ContactFormComponent, Home,PictureDetailComponent,About,
     RouterModule,
     HttpModule,
     FormsModule,
