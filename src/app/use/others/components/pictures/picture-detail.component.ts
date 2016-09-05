@@ -9,7 +9,7 @@ import {error} from "protractor/built/logger";
 @Component({
   template: require('./picture-detail.component.html'),
   selector: 'picture-detail-component',
-  styles:[
+  styles: [
     `
  #uploader{
   -webkit-appearance:none;
@@ -19,39 +19,46 @@ import {error} from "protractor/built/logger";
     `
   ]
 })
-export class PictureDetailComponent{
+export class PictureDetailComponent {
 
-  constructor(private pictureService:PictureService) {
-
+  constructor(private pictureService: PictureService) {
   }
-  image:String=null;
-  @Input()
-  contact:ContactWithKey;
 
-  pictureError=false;
+  private _contact: ContactWithKey;
+  image: String = null;
+
+  @Input() set contact(contact: ContactWithKey) {
+    this._contact = contact;
+    this.getAvatar();
+  }
+
+  pictureError = false;
 
 
-  getAvatar(){
+  getAvatar() {
     //this.pictureService.searchPicture(this.contact.$key);
-    this.pictureError=false;
-    const storageRef = firebase.storage().ref().child('pictures/'+this.contact.$key);
-    storageRef.getDownloadURL().then(url => this.image = url, error=>this.pictureError=true);
+    this.pictureError = false;
+    const storageRef = firebase.storage().ref().child('pictures/' + this._contact.$key);
+    storageRef.getDownloadURL().then(url => this.image = url, error=>this.pictureError = true);
     console.log(this.pictureError);
   }
 
-  upload(){
+  upload() {
     var fileButton = (<HTMLInputElement><any>document.getElementById("fileButton")).files[0];
     var uploader = <any>document.getElementsByName("uploader");
-    const storageRef = firebase.storage().ref().child('pictures/').child(this.contact.$key);
+    const storageRef = firebase.storage().ref().child('pictures/').child(this._contact.$key);
     var task = storageRef.put(fileButton);
 
     task.on(firebase.storage.TaskEvent.STATE_CHANGED,
       function progress(snapshot) {
-        var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-        uploader.value=percentage;
+        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        uploader.value = percentage;
       },
-      function error(err) {console.log(err)},
-      function complete() {})
+      function error(err) {
+        console.log(err)
+      },
+      function complete() {
+      })
   }
 }
 
