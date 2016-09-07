@@ -1,9 +1,0 @@
-<div class="form-group">
-    <ul >
-        <li *ngFor="let contact of contactService.contacts | async" [class.clicked]="contact === selectedContact" (click)="onSelect(contact)" >
-            {{contact.$key}} : {{contact.name}} {{contact.surname}}
-        </li>
-    </ul>
-    <pop-up *ngIf="selectedContact!==null" [(contact)]="selectedContact"></pop-up>
-    <picture-detail-component *ngIf="selectedContact!==null" [(contact)]="selectedContact"></picture-detail-component>
-</div>

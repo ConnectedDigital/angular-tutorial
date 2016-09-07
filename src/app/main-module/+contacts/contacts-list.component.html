@@ -1,0 +1,10 @@
+<div class="form-group">
+    <ul >
+        <li *ngFor="let contact of contactService.contacts | async" [class.clicked]="contact === selectedContact" (click)="onSelect(contact)" >
+            {{contact.name}} {{contact.surname}}
+          <avatar-component [contact]="contact"></avatar-component>
+        </li>
+    </ul>
+</div>
+
+<button (click)="addNewContact()">Add new contact</button>

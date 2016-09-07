@@ -41,7 +41,7 @@ var ContactFormComponent = (function () {
     ContactFormComponent = __decorate([
         core_1.Component({
             selector: 'contact-form-component',
-            templateUrl: require('./contact-form.component.html'),
+            templateUrl: require('./add-contact.component.html'),
             styles: [
                 "\n      label{\n        display: inline-block;\n        width:150px;\n       }\n      input{\n        width:250px;\n        }\n    "
             ],

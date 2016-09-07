@@ -17,7 +17,7 @@ var app_service_1 = require('./app.service');
 var home_1 = require('./home');
 var about_1 = require('./about');
 var no_content_1 = require('./no-content');
-var x_large_1 = require('./home/x-large');
+var x_large_1 = require('./main-module/home/x-large');
 // Application wide providers
 var APP_PROVIDERS = app_resolver_1.APP_RESOLVER_PROVIDERS.concat([
     app_service_1.AppState

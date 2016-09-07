@@ -4,7 +4,7 @@ var http_1 = require('@angular/http');
 var testing_2 = require('@angular/http/testing');
 // Load the implementations that should be tested
 var app_service_1 = require('../app.service');
-var home_component_1 = require('./home.component');
+var home_component_1 = require('./home.component.ts');
 var title_1 = require('./title');
 describe('Home', function () {
     // provide our implementations or mocks to the dependency injector

@@ -10,13 +10,14 @@ import { ENV_PROVIDERS } from './environment';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InteralStateType } from './app.service';
 import { App } from './app.component';
-import {Home} from "./home/home.component";
-import {ContactListComponent} from "./+contacts/contacts-list.component";
-import {ContactFormComponent} from "./+contacts/contact-form.component";
-import {ContactViewComponent} from "./+contacts/contact-details.component";
-import {PictureDetailComponent} from "./others/components/pictures/picture-detail.component";
-import {ContactService} from "./others/services/contact.service";
-import {PictureService} from "./others/services/picture.service";
+import {Home} from "./main-module/home/home.component";
+import {ContactListComponent} from "./main-module/+contacts/contacts-list.component";
+import { ModifyContactComponent} from "./main-module/+contacts/modify-contact.component";
+import {AvatarComponent} from "./main-module/common/components/avatars/avatar.component";
+import {ContactService} from "./main-module/common/services/contact.service";
+import {AvatarService} from "./main-module/common/services/avatar.service";
+import {ROUTER_CONFIG} from "./routes..routes";
+import {AddContactComponent} from "./main-module/+contacts/add-contact.component";
 
 
 
@@ -30,13 +31,7 @@ type StoreType = {
   disposeOldHosts: () => void
 };
 
-export const ROUTER_CONFIG = [
-  { path: '', component: Home, pathMatch: 'full' },
-  { path: 'home', component: Home, pathMatch: 'full' },
-  { path: 'contacts', component: ContactListComponent, pathMatch: 'full' },
-  { path: 'newContact', component: ContactFormComponent, pathMatch: 'full' },
 
-];
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBwb-_vmNtgtOWiTEjQ5inxzmZufAPjUzw",
@@ -47,7 +42,7 @@ export const firebaseConfig = {
 
 @NgModule({
   bootstrap: [ App ],
-  declarations: [App,ContactListComponent,ContactViewComponent, ContactFormComponent,Home,PictureDetailComponent],
+  declarations: [App,ContactListComponent, ModifyContactComponent,Home,AvatarComponent,AddContactComponent],
   imports: [ AngularFireModule.initializeApp(firebaseConfig),
     BrowserModule,
     FormsModule,
@@ -60,7 +55,8 @@ export const firebaseConfig = {
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [ENV_PROVIDERS, APP_PROVIDERS, ContactService, PictureService]
+  exports:      [  ContactListComponent, ModifyContactComponent, Home,AvatarComponent,AddContactComponent],
+  providers: [ENV_PROVIDERS, APP_PROVIDERS, ContactService, AvatarService]
 })
 export class AppModule {
   static routes = ROUTER_CONFIG; // MINE

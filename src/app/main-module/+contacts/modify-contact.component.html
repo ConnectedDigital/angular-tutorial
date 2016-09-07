@@ -1,0 +1,27 @@
+<div >
+    <div>
+        <label for="nameLabel">Name:</label>
+        <input id="nameLabel" [(ngModel)]="contact.name" type="text">
+    </div>
+    <div>
+        <label for="surnameLabel">Surname:</label>
+        <input id="surnameLabel" [(ngModel)]="contact.surname" type="text">
+    </div>
+    <div>
+        <label for="telLabel">Tel:</label>
+        <input id="telLabel" [(ngModel)]="contact.tel" type="number">
+    </div>
+    <div>
+        <label for="birthLabel">Birth:</label>
+        <input id="birthLabel" [(ngModel)]="contact.birth" type="text">
+    </div>
+    <br>
+
+</div>
+
+
+
+<div>
+  <input type="file" name="fileButton" value="upload" id="fileButton" (change)="uploadAvatar()"/>
+  <button (click)="getAvatar()">Get Avatar</button>
+</div>

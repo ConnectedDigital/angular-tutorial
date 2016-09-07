@@ -1,14 +1,15 @@
 import {Component, OnInit, Input} from '@angular/core';
 import { NgForm }    from '@angular/forms';
 import {Contact} from "./contact";
-import {ContactService} from "../others/services/contact.service";
-import {ActivatedRoute,Router} from "@angular/router";
+import {ContactService} from "../common/services/contact.service";
 import {Observable} from "rxjs/Rx";
 import {id} from "angular2/src/i18n/message";
+import {Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'contact-form-component',
-  template: require('./contact-form.component.html'),
+  selector: 'add-contact-component',
+  template: require('./add-contact.component.html'),
   styles:[
     `
       label{
@@ -22,7 +23,7 @@ import {id} from "angular2/src/i18n/message";
   ]
 
 })
-export class ContactFormComponent implements OnInit {
+export class AddContactComponent implements OnInit {
   getSurname:Observable<string>;
 
   ngOnInit():any { // to fetch surname
@@ -40,12 +41,11 @@ export class ContactFormComponent implements OnInit {
     'Super Hot', 'Weather Changer'];
 
 
-  constructor(private contactService:ContactService, private router:Router, private route:ActivatedRoute) {
+  constructor(private contactService:ContactService, private router:Router) {
 
       console.log('Contact-form');
 
   }
-
 
   contact=new Contact(null,null,null,null);
   submitted = false;
@@ -59,19 +59,7 @@ export class ContactFormComponent implements OnInit {
     this.active=false;
     console.log(contact);
     this.contactService.httpInsertContact(contact);
-
-     /*
-      .subscribe(() => {
-        this.router.navigateByUrl('/contacts');
-      }, (err) => { console.error('inset contact: ' + err);})
-      */
-
-
-    /*
-        .then(
-        contact  => this.contacts.push(contact),
-        error =>  this.errorMessage = <any>error);
-        */
+   //navigateByUrl
 
   }
 }
