@@ -1,10 +1,14 @@
-<div class="form-group">
-    <ul >
-        <li *ngFor="let contact of contactService.contacts | async" [class.clicked]="contact === selectedContact" (click)="onSelect(contact)" >
-            {{contact.name}} {{contact.surname}}
-          <avatar-component [contact]="contact"></avatar-component>
-        </li>
-    </ul>
+<div *ngIf="selectedContact==null">
+  <ul>
+          <li *ngFor="let contact of contactService.contacts | async" [class.clicked]="contact === selectedContact" (click)="onSelect(contact)" >
+              {{contact.name}} {{contact.surname}}
+            <avatar-component [contact]="contact"></avatar-component>
+          </li>
+  </ul>
 </div>
 
-<button (click)="addNewContact()">Add new contact</button>
+<button *ngIf="selectedContact==null" (click)="addNewContact()">Add new contact</button>
+<modify-contact-component *ngIf="selectedContact!=null" [selectedContact]="selectedContact" ></modify-contact-component>
+
+
+

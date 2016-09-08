@@ -21,7 +21,7 @@ export class AvatarComponent {
 
   @Input() set contact(contact: ContactWithKey) {
     this._contact = contact;
-    this.avatar=this.avatarService.getAvatar(this._contact);
+    this.avatar=this.avatarService.getAvatar(this._contact.$key);
   }
 
 }

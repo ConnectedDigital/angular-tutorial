@@ -10,18 +10,18 @@ export class AvatarService{
 
   avatar:string;
 
-  getAvatar(_contact:ContactWithKey) {
+  getAvatar(contactKey:string) {
     //console.log(_contact.$key);
-    const storageRef = firebase.storage().ref().child('pictures/' + _contact.$key+'.jpg');
+    const storageRef = firebase.storage().ref().child('pictures/' + contactKey);
     storageRef.getDownloadURL().then(url => this.avatar = url, error=>console.log("in avatar service error with getAvatar()"));
     console.log(this.avatar);
     return this.avatar;
   }
-  uploadAvatar(avatar:File,_contact:ContactWithKey) {
-    var uploader = <any>document.getElementsByName("uploader");
-    const storageRef = firebase.storage().ref().child('avatars/').child(_contact.$key);
-    storageRef.put(avatar);
-
+  updateAvatar(avatar:File,contactKey:string) {
+    firebase.storage().ref().child('pictures/').child(contactKey).put(avatar);
+  }
+  deleteAvatar(key:string){
+    firebase.storage().ref().child('pictures/').child(key).delete();
   }
 
 }

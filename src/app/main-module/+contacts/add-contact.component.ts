@@ -58,8 +58,8 @@ export class AddContactComponent implements OnInit {
     let contact:Contact = {name: name, surname: surname, tel: tel, birth: birth};
     this.active=false;
     console.log(contact);
-    this.contactService.httpInsertContact(contact);
-   //navigateByUrl
+    this.contactService.insertContact(contact);
+    this.router.navigateByUrl('/contacts');
 
   }
 }
