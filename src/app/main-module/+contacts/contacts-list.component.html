@@ -1,14 +1,26 @@
 <div *ngIf="selectedContact==null">
+
+  <div class="form-group">
+    <select  class="form-control"
+             [(ngModel)]="avatarSize"
+             name="birth" #birth="ngModel" >
+      <option *ngFor="let p of avatarSizeChoise" [value]="p">{{p}}</option>
+    </select>
+  </div>
+
   <ul>
           <li *ngFor="let contact of contactService.contacts | async" [class.clicked]="contact === selectedContact" (click)="onSelect(contact)" >
               {{contact.name}} {{contact.surname}}
-            <avatar-component [contact]="contact"></avatar-component>
+            <avatar-component [key]="contact.$key" [avatarSize]="avatarSize"></avatar-component>
           </li>
   </ul>
+
+
+
 </div>
 
 <button *ngIf="selectedContact==null" (click)="addNewContact()">Add new contact</button>
-<modify-contact-component *ngIf="selectedContact!=null" [selectedContact]="selectedContact" ></modify-contact-component>
+<modify-contact-component *ngIf="selectedContact!=null" [selectedContact]="selectedContact" [avatarSize]="avatarSize" ></modify-contact-component>
 
 
 

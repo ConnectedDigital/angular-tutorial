@@ -18,6 +18,7 @@ import {ContactService} from "./main-module/common/services/contact.service";
 import {AvatarService} from "./main-module/common/services/avatar.service";
 import {ROUTER_CONFIG} from "./routes..routes";
 import {AddContactComponent} from "./main-module/+contacts/add-contact.component";
+import {InputTextModule} from 'primeng/primeng';
 
 
 
@@ -44,6 +45,7 @@ export const firebaseConfig = {
   bootstrap: [ App ],
   declarations: [App,ContactListComponent, ModifyContactComponent,Home,AvatarComponent,AddContactComponent],
   imports: [ AngularFireModule.initializeApp(firebaseConfig),
+    InputTextModule,
     BrowserModule,
     FormsModule,
     HttpModule,

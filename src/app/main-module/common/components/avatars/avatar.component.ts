@@ -10,18 +10,21 @@ import {error} from "protractor/built/logger";
   template: require('./avatar.component.html'),
   selector: 'avatar-component',
 })
-export class AvatarComponent {
+export class AvatarComponent{
 
   constructor(private avatarService: AvatarService) {
   }
 
-  private _contact: ContactWithKey;
-  avatar: string;
   //size:number=0;
+  avatar: string=null;
+  size:number=50;
 
-  @Input() set contact(contact: ContactWithKey) {
-    this._contact = contact;
-    this.avatar=this.avatarService.getAvatar(this._contact.$key);
+  @Input() set key(_key:string) {
+    this.avatarService.getAvatar(_key)
+      .then(url => { this.avatar = url});
+  }
+  @Input() set avatarSize(_size:number) {
+    this.size=_size;
   }
 
 }

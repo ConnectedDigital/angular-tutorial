@@ -10,11 +10,7 @@ import any = jasmine.any;
 @Injectable()
 export class ContactService{
   constructor (private http: Http, private af: AngularFire) {}
-
- // public contacts = new BehaviorSubject<Contact[]>([]); //data
-  public contacts: FirebaseListObservable<ContactWithKey[]>; //database
-
-  //private contactsUrl = 'http://localhost:3000/data';
+  public contacts: FirebaseListObservable<ContactWithKey[]>;
   getContacts() {
     this.contacts = this.af.database.list('data/contacts');
     this.af.database.list('data/contacts')

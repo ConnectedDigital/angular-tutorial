@@ -17,7 +17,8 @@ export class ContactListComponent implements OnInit{
   }
 
   selectedContact: ContactWithKey = null;//contact to operate
-
+  avatarSizeChoise=[50,200];
+  avatarSize=this.avatarSizeChoise[0];
   public onSelect(selectedContact:ContactWithKey) { //chosing, which component is clicked
       this.selectedContact = selectedContact;
      }

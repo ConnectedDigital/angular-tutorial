@@ -13,11 +13,16 @@ export class ModifyContactComponent{
   }
   _contact:ContactWithKey;
 
-
   avatar:string=null;
+  _avatarSize:number;
  @Input() set selectedContact(selectedContact:ContactWithKey){
    this._contact=selectedContact;
-    this.avatar=this.avatarService.getAvatar(this._contact.$key);
+   this.avatarService.getAvatar(this._contact.$key)
+     .then(url=>{this.avatar=url});
+  }
+
+  @Input() set avatarSize(_size:number){
+    this._avatarSize=_size;
   }
 
   update(){
@@ -30,7 +35,7 @@ export class ModifyContactComponent{
     this.router.navigateByUrl('/contacts');
   }
   delete(){
-    this.avatarService.deleteAvatar(this._contact.$key);
+    //this.avatarService.deleteAvatar(this._contact.$key);
     this.contactService.deleteContact(this._contact.$key);
   }
 
