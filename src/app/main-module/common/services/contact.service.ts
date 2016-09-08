@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Contact, ContactWithKey} from "../../+contacts/contact";
+import {Contact, ContactWithKey} from "../../+contacts/models/contact.model";
 import {Headers, RequestOptions, Http, Response} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import {BehaviorSubject} from "rxjs";

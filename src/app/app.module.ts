@@ -3,23 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef,enableProdMode } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ScheduleModule} from 'primeng/primeng';
+import {DialogModule} from 'primeng/primeng';
+import {CalendarModule} from 'primeng/primeng';
+import {ButtonModule} from 'primeng/primeng';
+import {AccordionModule} from 'primeng/primeng';     //accordion and accordion tab
+import {ToggleButtonModule} from 'primeng/primeng';
 import {HttpModule} from "@angular/http";
 import {RouterModule} from "@angular/router";
 import { AngularFireModule } from 'angularfire2';
 import { ENV_PROVIDERS } from './environment';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
+import {InputTextModule} from 'primeng/primeng';
 import { AppState, InteralStateType } from './app.service';
 import { App } from './app.component';
 import {Home} from "./main-module/home/home.component";
-import {ContactListComponent} from "./main-module/+contacts/contacts-list.component";
-import { ModifyContactComponent} from "./main-module/+contacts/modify-contact.component";
+import {ContactListComponent} from "./main-module/+contacts/models/contacts-list.model";
+import { ModifyContactComponent} from "./main-module/+contacts/models/modify-contact.model";
+import {AddContactComponent} from "./main-module/+contacts/models/add-contact.model";
 import {AvatarComponent} from "./main-module/common/components/avatars/avatar.component";
 import {ContactService} from "./main-module/common/services/contact.service";
+import {CalendarService} from "./main-module/common/services/calendar.service";
 import {AvatarService} from "./main-module/common/services/avatar.service";
-import {ROUTER_CONFIG} from "./routes..routes";
-import {AddContactComponent} from "./main-module/+contacts/add-contact.component";
-import {InputTextModule} from 'primeng/primeng';
-
+import {ROUTER_CONFIG} from "./routes.routes";
+import {CalendarComponent} from "./main-module/calendar/calendar.component";
 
 
 // Application wide providers
@@ -43,25 +50,28 @@ export const firebaseConfig = {
 
 @NgModule({
   bootstrap: [ App ],
-  declarations: [App,ContactListComponent, ModifyContactComponent,Home,AvatarComponent,AddContactComponent],
+  declarations: [App,ContactListComponent, ModifyContactComponent,Home,AvatarComponent,AddContactComponent,CalendarComponent],
   imports: [ AngularFireModule.initializeApp(firebaseConfig),
     InputTextModule,
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTER_CONFIG),
-    //RouterModule.forChild(ROUTER_CONFIG)],
     CommonModule,
     HttpModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    ScheduleModule,
+    DialogModule,
+    CalendarModule,
+    ButtonModule,
+    ToggleButtonModule,AccordionModule
   ],
-  exports:      [  ContactListComponent, ModifyContactComponent, Home,AvatarComponent,AddContactComponent],
-  providers: [ENV_PROVIDERS, APP_PROVIDERS, ContactService, AvatarService]
+  exports:      [  ContactListComponent, ModifyContactComponent, Home,AvatarComponent,AddContactComponent,CalendarComponent],
+  providers: [ENV_PROVIDERS, APP_PROVIDERS, ContactService, AvatarService,CalendarService]
 })
 export class AppModule {
-  static routes = ROUTER_CONFIG; // MINE
 
   constructor(public appRef: ApplicationRef, public appState: AppState) {}
   hmrOnInit(store: StoreType) {

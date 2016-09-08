@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var contact_1 = require("./contact");
+var contact_1 = require("./contact.model.ts");
 var contact_service_1 = require("./contact.service");
 var ContactFormComponent = (function () {
     function ContactFormComponent(contactService, router, route) {
@@ -41,7 +41,7 @@ var ContactFormComponent = (function () {
     ContactFormComponent = __decorate([
         core_1.Component({
             selector: 'contact-form-component',
-            templateUrl: require('./add-contact.component.html'),
+            templateUrl: require('./templates/add-contact.component.html'),
             styles: [
                 "\n      label{\n        display: inline-block;\n        width:150px;\n       }\n      input{\n        width:250px;\n        }\n    "
             ],

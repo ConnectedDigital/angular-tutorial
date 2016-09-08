@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import 'rxjs/add/operator/toPromise';
 import any = jasmine.any;
 import * as firebase from 'firebase';
-import {ContactWithKey} from "../../+contacts/contact";
+import {ContactWithKey} from "../../+contacts/models/contact.model";
 
 @Injectable()
 export class AvatarService{

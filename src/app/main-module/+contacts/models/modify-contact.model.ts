@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Contact, ContactWithKey} from "./contact";
-import {AvatarService} from "../common/services/avatar.service";
-import {ContactService} from "../common/services/contact.service";
+import {Contact, ContactWithKey} from "./contact.model";
+import {AvatarService} from "../../common/services/avatar.service";
+import {ContactService} from "../../common/services/contact.service";
 import {Router} from "@angular/router";
 
 @Component({
   selector: 'modify-contact-component',
-  template: require('./modify-contact.component.html'),
+  template: require('./../templates/modify-contact.component.html'),
 })
 export class ModifyContactComponent{
   constructor(private avatarService:AvatarService,private contactService:ContactService, private router:Router){

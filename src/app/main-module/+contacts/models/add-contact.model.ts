@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import { NgForm }    from '@angular/forms';
-import {Contact} from "./contact";
-import {ContactService} from "../common/services/contact.service";
+import {Contact} from "./contact.model";
+import {ContactService} from "../../common/services/contact.service";
 import {Observable} from "rxjs/Rx";
 import {id} from "angular2/src/i18n/message";
 import {Router} from "@angular/router";
@@ -9,7 +9,7 @@ import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'add-contact-component',
-  template: require('./add-contact.component.html'),
+  template: require('./../templates/add-contact.component.html'),
   styles:[
     `
       label{

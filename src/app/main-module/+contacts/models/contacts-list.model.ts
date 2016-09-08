@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ContactService} from "../common/services/contact.service";
-import {Contact, ContactWithKey} from "./contact";
+import {ContactService} from "../../common/services/contact.service";
+import {Contact, ContactWithKey} from "./contact.model";
 import {Route,Router} from "@angular/router";
 import {provideRouterInitializer} from "@angular/router/src/router_module";
 
 @Component({
   selector: 'my-contact-list-component',
-  template: require('./contacts-list.component.html'),
+  template: require('./../templates/contacts-list.component.html'),
   //styleUrls:["../assets/scss/contact-list.scss"]
 })
 export class ContactListComponent implements OnInit{

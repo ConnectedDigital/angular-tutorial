@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import * as firebase from 'firebase';
 import {AvatarService} from "../../services/avatar.service";
 import any = jasmine.any;
-import {ContactWithKey} from "../../../+contacts/contact";
+import {ContactWithKey} from "../../../+contacts/models/contact.model";
 import {error} from "protractor/built/logger";
 
 
