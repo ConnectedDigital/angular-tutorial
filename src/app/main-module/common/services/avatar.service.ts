@@ -8,14 +8,14 @@ import {ContactWithKey} from "../../+contacts/models/contact.model";
 export class AvatarService{
 
    getAvatar(contactKey:string) {
-    const storageRef = firebase.storage().ref().child('pictures/' + contactKey);
+    const storageRef = firebase.storage().ref().child('avatars/' + contactKey);
     return storageRef.getDownloadURL();
   }
   updateAvatar(avatar:File,contactKey:string) {
-    firebase.storage().ref().child('pictures/').child(contactKey).put(avatar);
+    firebase.storage().ref().child('avatars/').child(contactKey).put(avatar);
   }
   deleteAvatar(key:string){
-    firebase.storage().ref().child('pictures/').child(key).delete();
+    firebase.storage().ref().child('avatars/').child(key).delete();
   }
 
 }

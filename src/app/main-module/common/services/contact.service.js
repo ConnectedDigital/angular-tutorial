@@ -1,24 +1,32 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 var core_1 = require("@angular/core");
-var mock_contacts_1 = require("../components/mock-contacts");
+var http_1 = require("@angular/http");
+require('rxjs/add/operator/toPromise');
+var angularfire2_1 = require('angularfire2');
 var ContactService = (function () {
-    function ContactService() {
+    function ContactService(http, af) {
+        this.http = http;
+        this.af = af;
     }
     ContactService.prototype.getContacts = function () {
-        return Promise.resolve(mock_contacts_1.CONTACTS); // promise to CONTACTS, that will fetch CONTACTS
+        this.contacts = this.af.database.list('data/contacts');
+        this.af.database.list('data/contacts')
+            .subscribe(function (data) { return console.log(data); });
     };
-    ContactService.prototype.insertContacts = function (contact) {
-        Promise.resolve(mock_contacts_1.CONTACTS).then(function (contacts) { return contacts.push(contact); });
+    ContactService.prototype.insertContact = function (contact) {
+        this.contacts.push(contact);
+    };
+    ContactService.prototype.deleteContact = function (key) {
+        this.contacts.remove(key);
+    };
+    ContactService.prototype.updateContact = function (key, contact) {
+        this.contacts.update(key, contact);
     };
     ContactService = __decorate([
-        core_1.Injectable()
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http, angularfire2_1.AngularFire])
     ], ContactService);
     return ContactService;
 }());
 exports.ContactService = ContactService;
+//# sourceMappingURL=contact.service.js.map

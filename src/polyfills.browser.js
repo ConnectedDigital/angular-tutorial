@@ -21,11 +21,9 @@ require('core-js/es6/weak-map');
 require('core-js/es6/weak-set');
 require('core-js/es6/typed');
 require('core-js/es6/reflect');
-// see issue https://github.com/AngularClass/angular2-webpack-starter/issues/709
-// import 'core-js/es6/promise';
 require('core-js/es7/reflect');
 require('zone.js/dist/zone');
-// Typescript emit helpers polyfill
+require('reflect-metadata');
 require('ts-helpers');
 if ('production' === ENV) {
 }

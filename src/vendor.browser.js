@@ -12,11 +12,21 @@ require('@angular/common');
 require('@angular/forms');
 require('@angular/http');
 require('@angular/router');
-// AngularClass
+require('primeng/primeng');
 require('@angularclass/hmr');
+require('jquery/dist/jquery.js');
 // RxJS
+require('rxjs/Rx');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/mergeMap');
+require('@angular/platform-browser');
+require('@angular/platform-browser-dynamic');
+require('@angular/core');
+require('@angular/common');
+require('@angular/forms');
+require('@angular/http');
+require('@angular/router');
+require('primeng/primeng');
 if ('production' === ENV) {
 }
 else {

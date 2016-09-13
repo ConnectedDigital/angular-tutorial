@@ -1,35 +1,64 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 var core_1 = require('@angular/core');
-var ContactViewComponent = (function () {
-    function ContactViewComponent(router) {
+var contact_model_1 = require("./contact.model");
+var avatar_service_1 = require("../../common/services/avatar.service");
+var contact_service_1 = require("../../common/services/contact.service");
+var router_1 = require("@angular/router");
+var ModifyContactComponent = (function () {
+    function ModifyContactComponent(avatarService, contactService, router) {
+        this.avatarService = avatarService;
+        this.contactService = contactService;
         this.router = router;
+        this.avatar = null;
     }
-    ContactViewComponent.prototype.createContactFromExistOne = function () {
-        /*
-        let navigationExtras = {
-          queryParams: { 'surname': this.contact.surname }, // global parameter
-        };
-        */
-        this.router.navigate(['/+contacts/+newContact', this.contact.surname]);
+    Object.defineProperty(ModifyContactComponent.prototype, "selectedContact", {
+        set: function (selectedContact) {
+            var _this = this;
+            this._contact = selectedContact;
+            this.avatarService.getAvatar(this._contact.$key)
+                .then(function (url) { _this.avatar = url; });
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ModifyContactComponent.prototype, "avatarSize", {
+        set: function (_size) {
+            this._avatarSize = _size;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ModifyContactComponent.prototype.update = function () {
+        var fileButtonWithAvatar = document.getElementById("fileButton").files[0];
+        if (fileButtonWithAvatar != null) {
+            this.avatarService.updateAvatar(fileButtonWithAvatar, this._contact.$key);
+        }
+        var contact = { name: this._contact.name, surname: this._contact.surname, tel: this._contact.tel, birth: this._contact.birth };
+        this.contactService.updateContact(this._contact.$key, contact);
+        this.router.navigateByUrl('/contacts');
+    };
+    ModifyContactComponent.prototype.delete = function () {
+        //this.avatarService.deleteAvatar(this._contact.$key);
+        this.contactService.deleteContact(this._contact.$key);
     };
     __decorate([
-        core_1.Input()
-    ], ContactViewComponent.prototype, "contact", void 0);
-    ContactViewComponent = __decorate([
+        core_1.Input(), 
+        __metadata('design:type', contact_model_1.ContactWithKey), 
+        __metadata('design:paramtypes', [contact_model_1.ContactWithKey])
+    ], ModifyContactComponent.prototype, "selectedContact", null);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Number), 
+        __metadata('design:paramtypes', [Number])
+    ], ModifyContactComponent.prototype, "avatarSize", null);
+    ModifyContactComponent = __decorate([
         core_1.Component({
-            selector: 'my-contact-Viev-component',
-            template: "\n\n  <div >\n      <div>\n        <label for=\"nameLabel\">Name:</label>\n        <input [(ngModel)]=\"contact.name\" type=\"text\">\n     </div>\n      <div>\n       <label for=\"surnameLabel\">Surname:</label>\n        <input [(ngModel)]=\"contact.surname\" type=\"text\">\n      </div>\n      <div>\n       <label for=\"telLabel\">Tel:</label>\n        <input [(ngModel)]=\"contact.tel\" type=\"number\">\n      </div>\n      <div>\n        <label for=\"birthLabel\">Birth:</label>\n        <input [(ngModel)]=\"contact.birth\" type=\"text\">\n      </div>\n      <br>\n      <button (click)=\"createContactFromExistOne()\">Create a new contact from existing one</button>\n   </div>\n\n \n    ",
-            styles: [
-                "\n      label{\n        display: inline-block;\n        width:150px;\n       }\n      input{\n        width:250px;\n        }\n    "
-            ],
-        })
-    ], ContactViewComponent);
-    return ContactViewComponent;
+            selector: 'modify-contact-component',
+            template: require('./../templates/modify-contact.component.html'),
+        }), 
+        __metadata('design:paramtypes', [avatar_service_1.AvatarService, contact_service_1.ContactService, router_1.Router])
+    ], ModifyContactComponent);
+    return ModifyContactComponent;
 }());
-exports.ContactViewComponent = ContactViewComponent;
+exports.ModifyContactComponent = ModifyContactComponent;
+//# sourceMappingURL=modify-contact.model.js.map

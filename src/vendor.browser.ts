@@ -5,7 +5,23 @@
 
 // TODO(gdi2290): switch to DLLs
 
-// Angular 2
+import 'jquery';
+import '../node_modules/moment/moment';
+import '../node_modules/fullcalendar';
+import '../node_modules/jquery-ui-bundle/jquery-ui'
+
+
+import '@angular/platform-browser';
+import '@angular/platform-browser-dynamic';
+import '@angular/core';
+import '@angular/common';
+import '@angular/forms';
+import '@angular/http';
+import '@angular/router';
+import '@angularclass/hmr';
+import 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 import '@angular/platform-browser';
 import '@angular/platform-browser-dynamic';
 import '@angular/core';
@@ -14,12 +30,9 @@ import '@angular/forms';
 import '@angular/http';
 import '@angular/router';
 
-// AngularClass
-import '@angularclass/hmr';
 
-// RxJS
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
+
+
 
 if ('production' === ENV) {
   // Production
@@ -29,3 +42,4 @@ if ('production' === ENV) {
   // Development
 
 }
+

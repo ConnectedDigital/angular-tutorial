@@ -1,29 +1,29 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Contact, ContactWithKey} from "./contact.model";
+import { ContactWithKey} from "./contact.model";
 import {AvatarService} from "../../common/services/avatar.service";
 import {ContactService} from "../../common/services/contact.service";
 import {Router} from "@angular/router";
 
 @Component({
   selector: 'modify-contact-component',
-  template: require('./../templates/modify-contact.component.html'),
+  template: require('./../templates/modify-contact.component.html')
+
 })
-export class ModifyContactComponent{
+export class ModifyContactComponent  {
   constructor(private avatarService:AvatarService,private contactService:ContactService, private router:Router){
   }
-  _contact:ContactWithKey;
-
-  avatar:string=null;
+  _contact:ContactWithKey=null;
+  // avatar:string;
   _avatarSize:number;
  @Input() set selectedContact(selectedContact:ContactWithKey){
    this._contact=selectedContact;
-   this.avatarService.getAvatar(this._contact.$key)
-     .then(url=>{this.avatar=url});
+
   }
 
   @Input() set avatarSize(_size:number){
     this._avatarSize=_size;
   }
+
 
   update(){
     var fileButtonWithAvatar = (<HTMLInputElement><any>document.getElementById("fileButton")).files[0];
@@ -35,8 +35,10 @@ export class ModifyContactComponent{
     this.router.navigateByUrl('/contacts');
   }
   delete(){
-    //this.avatarService.deleteAvatar(this._contact.$key);
     this.contactService.deleteContact(this._contact.$key);
+    this.avatarService.deleteAvatar(this._contact.$key);
+    this.router.navigateByUrl('/contacts');
+
   }
 
 

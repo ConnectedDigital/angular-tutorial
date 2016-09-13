@@ -1,9 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import * as firebase from 'firebase';
+import {Component, Input, OnInit, NgZone, ChangeDetectorRef} from '@angular/core';
 import {AvatarService} from "../../services/avatar.service";
 import any = jasmine.any;
-import {ContactWithKey} from "../../../+contacts/models/contact.model";
-import {error} from "protractor/built/logger";
+
+
 
 
 @Component({
@@ -12,22 +11,23 @@ import {error} from "protractor/built/logger";
 })
 export class AvatarComponent{
 
+
   constructor(private avatarService: AvatarService) {
   }
 
-  //size:number=0;
   avatar: string=null;
-  size:number=50;
+  size:number=0;
 
   @Input() set key(_key:string) {
     this.avatarService.getAvatar(_key)
-      .then(url => { this.avatar = url});
+      .then(url => { this.avatar = url},error=>console.log("Avatar not found"));
+
   }
   @Input() set avatarSize(_size:number) {
     this.size=_size;
   }
 
-}
+ }
 
 
 

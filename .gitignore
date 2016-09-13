@@ -1,7 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
 /config/
 /.vscode/
-/node_modules/
 /.editorconfig
 /npm-debug.log.1058380327
 /Dockerfile
+
+/node_modules/
+/typings/

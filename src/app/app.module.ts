@@ -19,7 +19,7 @@ import { AppState, InteralStateType } from './app.service';
 import { App } from './app.component';
 import {Home} from "./main-module/home/home.component";
 import {ContactListComponent} from "./main-module/+contacts/models/contacts-list.model";
-import { ModifyContactComponent} from "./main-module/+contacts/models/modify-contact.model";
+import {ModifyContactComponent} from "./main-module/+contacts/models/modify-contact.model";
 import {AddContactComponent} from "./main-module/+contacts/models/add-contact.model";
 import {AvatarComponent} from "./main-module/common/components/avatars/avatar.component";
 import {ContactService} from "./main-module/common/services/contact.service";
@@ -27,6 +27,10 @@ import {CalendarService} from "./main-module/common/services/calendar.service";
 import {AvatarService} from "./main-module/common/services/avatar.service";
 import {ROUTER_CONFIG} from "./routes.routes";
 import {CalendarComponent} from "./main-module/calendar/calendar.component";
+
+
+
+
 
 
 // Application wide providers

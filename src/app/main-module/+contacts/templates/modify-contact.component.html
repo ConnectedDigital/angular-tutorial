@@ -19,11 +19,10 @@
     <br>
 
 </div>
+<avatar-component [key]="_contact.$key" [avatarSize]="_avatarSize"></avatar-component>
 
-<div>
-  <img [src]="avatar" [height]="_avatarSize" [width]="_avatarSize"/>
   <input type="file" name="fileButton" value="upload" id="fileButton"/>
-</div>
+
 
 <button (click)="update()">Save</button>
 <button (click)="delete()">Delete contact</button>

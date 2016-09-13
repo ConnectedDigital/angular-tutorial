@@ -105,6 +105,13 @@ module.exports = {
         },
         include: [helpers.root('src')]
       },
+      {
+        test: /\.js$/,
+        loader: 'source-map-loader',
+        exclude: [
+          helpers.root('node_modules/primeng')
+        ]
+      }
 
     ],
 
@@ -171,7 +178,11 @@ module.exports = {
       {
         test: /\.(jpg|png|gif)$/,
         loader: 'file'
-      }
+      },
+      { test: /\.scss$/, loaders: ['style', 'css', 'postcss', 'sass'] },
+      { test: /\.(woff2?|ttf|eot|svg)$/, loader: 'url?limit=10000' },
+      { test: /bootstrap\/dist\/js\/umd\//, loader: 'imports?jQuery=jquery' },
+      {test:/.css$/,loader:'raw!postcss'}
     ]
 
   },
@@ -210,10 +221,16 @@ module.exports = {
      *
      * See: https://www.npmjs.com/package/copy-webpack-plugin
      */
-    new CopyWebpackPlugin([{
+    new CopyWebpackPlugin([
+      {
       from: 'src/assets',
       to: 'assets'
-    }]),
+      },
+      {
+        from: 'resources',
+        to: 'assets'
+      }
+      ]),
 
     /*
      * Plugin: HtmlWebpackPlugin
@@ -253,6 +270,12 @@ module.exports = {
     new HtmlElementsPlugin({
       headTags: require('./head-config.common')
     }),
+
+    new webpack.ProvidePlugin({
+      jQuery: 'jquery',
+      $: 'jquery',
+      jquery: 'jquery'
+    })
 
   ],
 

@@ -9,4 +9,12 @@ var Contact = (function () {
     return Contact;
 }());
 exports.Contact = Contact;
-//# sourceMappingURL=contact.model.js.mapjs.map
+var ContactWithKey = (function (_super) {
+    __extends(ContactWithKey, _super);
+    function ContactWithKey() {
+        _super.apply(this, arguments);
+    }
+    return ContactWithKey;
+}(Contact));
+exports.ContactWithKey = ContactWithKey;
+//# sourceMappingURL=contact.model.js.map

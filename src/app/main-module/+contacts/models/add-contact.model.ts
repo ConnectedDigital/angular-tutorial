@@ -6,6 +6,7 @@ import {Observable} from "rxjs/Rx";
 import {id} from "angular2/src/i18n/message";
 import {Router} from "@angular/router";
 import {ActivatedRoute} from "@angular/router";
+import {AvatarService} from "../../common/services/avatar.service";
 
 @Component({
   selector: 'add-contact-component',
@@ -41,7 +42,7 @@ export class AddContactComponent implements OnInit {
     'Super Hot', 'Weather Changer'];
 
 
-  constructor(private contactService:ContactService, private router:Router) {
+  constructor(private contactService:ContactService,private avatarService:AvatarService, private router:Router) {
 
       console.log('Contact-form');
 

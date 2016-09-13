@@ -2,12 +2,16 @@ import {Component,OnInit, ChangeDetectorRef} from "@angular/core";
 import {CalendarService} from "../common/services/calendar.service";
 
 
+
+
 @Component({
   selector: 'calendar-component',
   template: require('./calendar.component.html'),
 
 })
 export class CalendarComponent implements OnInit {
+
+
 
   events: any[];
 
@@ -22,8 +26,31 @@ export class CalendarComponent implements OnInit {
   constructor(private calendarService: CalendarService, private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
-this.calendarService.getEvents().then(events => {this.events = events;});
-
+// this.calendarService.getEvents().then(events => {this.events = events;});
+    this.events = [
+      {
+        "title": "All Day Event",
+        "start": "2016-01-01"
+      },
+      {
+        "title": "Long Event",
+        "start": "2016-01-07",
+        "end": "2016-01-10"
+      },
+      {
+        "title": "Repeating Event",
+        "start": "2016-01-09T16:00:00"
+      },
+      {
+        "title": "Repeating Event",
+        "start": "2016-01-16T16:00:00"
+      },
+      {
+        "title": "Conference",
+        "start": "2016-01-11",
+        "end": "2016-01-13"
+      }
+    ];
     this.header = {
       left: 'prev,next today',
       center: 'title',
@@ -33,15 +60,17 @@ this.calendarService.getEvents().then(events => {this.events = events;});
 
   handleDayClick(event) {
     this.event = new MyEvent();
-    this.event.start = event.date.format();
-    this.dialogVisible = true;
-
-    //trigger detection manually as somehow only moving the mouse quickly after click triggers the automatic detection
+  this.event.start = event.date.format();
+   this.dialogVisible = true;
+  this.dialogVisible=true;
+   // trigger detection manually as somehow only moving the mouse quickly after click triggers the automatic detection
     this.cd.detectChanges();
   }
 
   handleEventClick(e) {
-    this.event = new MyEvent();
+   this.event = new MyEvent();
+
+
     this.event.title = e.calEvent.title;
 
     let start = e.calEvent.start;
@@ -104,6 +133,8 @@ export class MyEvent {
   start: string;
   end: string;
   allDay: boolean = true;
+
+
 }
 
 

@@ -37,5 +37,8 @@
   },
   "compileOnSave": false,
   "buildOnSave": false,
-  "atom": { "rewriteTsconfig": false }
+  "filesGlob": [
+    "**/*.ts",
+    "!node_modules/**"
+  ]
 }

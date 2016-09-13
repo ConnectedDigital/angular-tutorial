@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ContactService} from "../../common/services/contact.service";
-import {Contact, ContactWithKey} from "./contact.model";
-import {Route,Router} from "@angular/router";
-import {provideRouterInitializer} from "@angular/router/src/router_module";
+import {ContactWithKey} from "./contact.model";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'my-contact-list-component',
