@@ -10,8 +10,8 @@ var ContactService = (function () {
   }
 
   ContactService.prototype.getContacts = function () {
-    this.contacts = this.af.database.list('data/contacts');
-    this.af.database.list('data/contacts')
+    this.contacts = this.af.database.list('data/+contacts');
+    this.af.database.list('data/+contacts')
       .subscribe(function (data) {
         return console.log(data);
       });

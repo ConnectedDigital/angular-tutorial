@@ -1,6 +1,6 @@
-import {Injectable} from "@angular/core";
-import "rxjs/add/operator/toPromise";
-import * as firebase from "firebase";
+import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/toPromise';
+import * as firebase from 'firebase';
 import any = jasmine.any;
 @Injectable()
 export class AvatarService {

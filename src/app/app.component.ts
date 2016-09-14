@@ -1,5 +1,5 @@
-import {Component} from "@angular/core";
-import {AppState} from "./app.service";
+import { Component } from '@angular/core';
+import { AppState } from './app.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'

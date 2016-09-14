@@ -1,19 +1,19 @@
-import {Component, Input, OnInit} from "@angular/core";
-import {ContactWithKey} from "./models/contact.model";
-import {AvatarService} from "../common/services/avatar.service";
-import {ContactService} from "../common/services/contact.service";
-import {Router} from "@angular/router";
+import { Component, Input, OnInit } from '@angular/core';
+import { ContactWithKey } from './contact.model';
+import { AvatarService } from '../../common/services/avatar.service';
+import { ContactService } from '../../common/services/contact.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'modify-contact-component',
-  template: require('./templates/modify-contact.component.html')
+  template: require('./../templates/modify-contact.component.html')
 })
 export class ModifyContactComponent {
-  constructor(private avatarService: AvatarService, private contactService: ContactService, private router: Router) {
-  }
-
   _contact: ContactWithKey = null;
-  // avatar:string;
   _avatarSize: number;
+
+  constructor(private avatarService: AvatarService,
+              private contactService: ContactService, private router: Router) {
+  }
 
   @Input() set selectedContact(selectedContact: ContactWithKey) {
     this._contact = selectedContact;
@@ -24,11 +24,12 @@ export class ModifyContactComponent {
   }
 
   update() {
-    var fileButtonWithAvatar = (<HTMLInputElement><any>document.getElementById("fileButton")).files[0];
+    let fileButtonWithAvatar = (<HTMLInputElement><any>document
+      .getElementById('fileButton')).files[0];
     if (fileButtonWithAvatar != null) {
       this.avatarService.updateAvatar(fileButtonWithAvatar, this._contact.$key);
     }
-    var contact = {
+    let contact = {
       name: this._contact.name,
       surname: this._contact.surname,
       tel: this._contact.tel,

@@ -1,23 +1,14 @@
-import {Component, OnInit, ChangeDetectorRef} from "@angular/core";
-import {CalendarService} from "../common/services/calendar.service";
-
-
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { CalendarService } from '../common/services/calendar.service';
 @Component({
   selector: 'calendar-component',
   template: require('./calendar.component.html'),
-
 })
 export class CalendarComponent implements OnInit {
-
-
   events: any[];
-
   header: any;
-
   event: MyEvent;
-
   dialogVisible: boolean = false;
-
   idGen: number = 100;
 
   constructor(private calendarService: CalendarService, private cd: ChangeDetectorRef) {
@@ -27,26 +18,26 @@ export class CalendarComponent implements OnInit {
 // this.calendarService.getEvents().then(events => {this.events = events;});
     this.events = [
       {
-        "title": "All Day Event",
-        "start": "2016-01-01"
+        'title': 'All Day Event',
+        'start': '2016-01-01'
       },
       {
-        "title": "Long Event",
-        "start": "2016-01-07",
-        "end": "2016-01-10"
+        'title': 'Long Event',
+        'start': '2016-01-07',
+        'end': '2016-01-10'
       },
       {
-        "title": "Repeating Event",
-        "start": "2016-01-09T16:00:00"
+        'title': 'Repeating Event',
+        'start': '2016-01-09T16:00:00'
       },
       {
-        "title": "Repeating Event",
-        "start": "2016-01-16T16:00:00"
+        'title': 'Repeating Event',
+        'start': '2016-01-16T16:00:00'
       },
       {
-        "title": "Conference",
-        "start": "2016-01-11",
-        "end": "2016-01-13"
+        'title': 'Conference',
+        'start': '2016-01-11',
+        'end': '2016-01-13'
       }
     ];
     this.header = {
@@ -61,27 +52,23 @@ export class CalendarComponent implements OnInit {
     this.event.start = event.date.format();
     this.dialogVisible = true;
     this.dialogVisible = true;
-    // trigger detection manually as somehow only moving the mouse quickly after click triggers the automatic detection
+    // trigger detection manually as somehow only moving the
+    // mouse quickly after click triggers the automatic detection
     this.cd.detectChanges();
   }
 
   handleEventClick(e) {
     this.event = new MyEvent();
-
-
     this.event.title = e.calEvent.title;
-
     let start = e.calEvent.start;
     let end = e.calEvent.end;
     if (e.view.name === 'month') {
       start.stripTime();
     }
-
     if (end) {
       end.stripTime();
       this.event.end = end.format();
     }
-
     this.event.id = e.calEvent.id;
     this.event.start = start.format();
     this.event.allDay = e.calEvent.allDay;
@@ -89,20 +76,16 @@ export class CalendarComponent implements OnInit {
   }
 
   saveEvent() {
-    //update
     if (this.event.id) {
       let index: number = this.findEventIndexById(this.event.id);
       if (index >= 0) {
         this.events[index] = this.event;
       }
-    }
-    //new
-    else {
+    } else {
       this.event.id = this.idGen;
       this.events.push(this.event);
       this.event = null;
     }
-
     this.dialogVisible = false;
   }
 
@@ -117,7 +100,7 @@ export class CalendarComponent implements OnInit {
   findEventIndexById(id: number) {
     let index = -1;
     for (let i = 0; i < this.events.length; i++) {
-      if (id == this.events[i].id) {
+      if (id === this.events[i].id) {
         index = i;
         break;
       }
@@ -131,8 +114,6 @@ export class MyEvent {
   start: string;
   end: string;
   allDay: boolean = true;
-
-
 }
 
 
