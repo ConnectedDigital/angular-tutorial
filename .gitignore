@@ -14,3 +14,7 @@ logs
 # Webpack
 src/config.ts
 
+.nvmrc
+.travis.yml
+.vscode/
+npm-debug.*
