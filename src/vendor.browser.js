@@ -4,7 +4,10 @@
 // run `typings install x` where `x` is your module
 "use strict";
 // TODO(gdi2290): switch to DLLs
-// Angular 2
+require('jquery');
+require('../node_modules/moment/moment');
+require('../node_modules/fullcalendar');
+require('../node_modules/jquery-ui-bundle/jquery-ui');
 require('@angular/platform-browser');
 require('@angular/platform-browser-dynamic');
 require('@angular/core');
@@ -12,10 +15,7 @@ require('@angular/common');
 require('@angular/forms');
 require('@angular/http');
 require('@angular/router');
-require('primeng/primeng');
 require('@angularclass/hmr');
-require('jquery/dist/jquery.js');
-// RxJS
 require('rxjs/Rx');
 require('rxjs/add/operator/map');
 require('rxjs/add/operator/mergeMap');
@@ -26,7 +26,6 @@ require('@angular/common');
 require('@angular/forms');
 require('@angular/http');
 require('@angular/router');
-require('primeng/primeng');
 if ('production' === ENV) {
 }
 else {

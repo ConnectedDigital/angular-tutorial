@@ -11,7 +11,7 @@ var App = (function () {
     App = __decorate([
         core_1.Component({
             selector: 'app-root',
-            templateUrl: 'app.component.html',
+            templateUrl: 'app.component.html'
         }), 
         __metadata('design:paramtypes', [app_service_1.AppState])
     ], App);

@@ -9,7 +9,31 @@ var CalendarComponent = (function () {
         this.idGen = 100;
     }
     CalendarComponent.prototype.ngOnInit = function () {
-        //  this.calendarService.getEvents().then(events => {this.events = events;});
+        // this.calendarService.getEvents().then(events => {this.events = events;});
+        this.events = [
+            {
+                "title": "All Day Event",
+                "start": "2016-01-01"
+            },
+            {
+                "title": "Long Event",
+                "start": "2016-01-07",
+                "end": "2016-01-10"
+            },
+            {
+                "title": "Repeating Event",
+                "start": "2016-01-09T16:00:00"
+            },
+            {
+                "title": "Repeating Event",
+                "start": "2016-01-16T16:00:00"
+            },
+            {
+                "title": "Conference",
+                "start": "2016-01-11",
+                "end": "2016-01-13"
+            }
+        ];
         this.header = {
             left: 'prev,next today',
             center: 'title',
@@ -20,7 +44,8 @@ var CalendarComponent = (function () {
         this.event = new MyEvent();
         this.event.start = event.date.format();
         this.dialogVisible = true;
-        //trigger detection manually as somehow only moving the mouse quickly after click triggers the automatic detection
+        this.dialogVisible = true;
+        // trigger detection manually as somehow only moving the mouse quickly after click triggers the automatic detection
         this.cd.detectChanges();
     };
     CalendarComponent.prototype.handleEventClick = function (e) {

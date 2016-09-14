@@ -6,14 +6,14 @@ var AvatarService = (function () {
     function AvatarService() {
     }
     AvatarService.prototype.getAvatar = function (contactKey) {
-        var storageRef = firebase.storage().ref().child('pictures/' + contactKey);
+        var storageRef = firebase.storage().ref().child('avatars/' + contactKey);
         return storageRef.getDownloadURL();
     };
     AvatarService.prototype.updateAvatar = function (avatar, contactKey) {
-        firebase.storage().ref().child('pictures/').child(contactKey).put(avatar);
+        firebase.storage().ref().child('avatars/').child(contactKey).put(avatar);
     };
     AvatarService.prototype.deleteAvatar = function (key) {
-        firebase.storage().ref().child('pictures/').child(key).delete();
+        firebase.storage().ref().child('avatars/').child(key).delete();
     };
     AvatarService = __decorate([
         core_1.Injectable(), 

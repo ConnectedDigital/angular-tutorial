@@ -3,9 +3,11 @@ var core_1 = require('@angular/core');
 var contact_model_1 = require("./contact.model");
 var contact_service_1 = require("../../common/services/contact.service");
 var router_1 = require("@angular/router");
+var avatar_service_1 = require("../../common/services/avatar.service");
 var AddContactComponent = (function () {
-    function AddContactComponent(contactService, router) {
+    function AddContactComponent(contactService, avatarService, router) {
         this.contactService = contactService;
+        this.avatarService = avatarService;
         this.router = router;
         this.powers = ['Really Smart', 'Super Flexible',
             'Super Hot', 'Weather Changer'];
@@ -40,7 +42,7 @@ var AddContactComponent = (function () {
                 "\n      label{\n        display: inline-block;\n        width:150px;\n       }\n      input{\n        width:250px;\n        }\n    "
             ]
         }), 
-        __metadata('design:paramtypes', [contact_service_1.ContactService, router_1.Router])
+        __metadata('design:paramtypes', [contact_service_1.ContactService, avatar_service_1.AvatarService, router_1.Router])
     ], AddContactComponent);
     return AddContactComponent;
 }());

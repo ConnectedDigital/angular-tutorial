@@ -1,10 +1,20 @@
-# Created by .ignore support plugin (hsz.mobi)
-/config/
-/.vscode/
-/.idea/
-/.editorconfig
-/npm-debug.log.1058380327
-/Dockerfile
+/dist
+node_modules/
+typings/
+*.map
+.idea/
+src/**/*.js
+*.ini
+*.css
 
-/node_modules/
-/typings/
+# Logs
+logs
+*.log
+
+# Webpack
+src/config.ts
+
+.nvmrc
+.travis.yml
+.vscode/
+npm-debug.*

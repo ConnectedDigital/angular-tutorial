@@ -4,15 +4,14 @@ var avatar_service_1 = require("../../services/avatar.service");
 var AvatarComponent = (function () {
     function AvatarComponent(avatarService) {
         this.avatarService = avatarService;
-        //size:number=0;
         this.avatar = null;
-        this.size = 50;
+        this.size = 0;
     }
     Object.defineProperty(AvatarComponent.prototype, "key", {
         set: function (_key) {
             var _this = this;
             this.avatarService.getAvatar(_key)
-                .then(function (url) { _this.avatar = url; });
+                .then(function (url) { _this.avatar = url; }, function (error) { return console.log("Avatar not found"); });
         },
         enumerable: true,
         configurable: true
