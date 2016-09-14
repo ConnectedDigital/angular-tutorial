@@ -1,14 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Contact } from './contact.model';
-import { ContactService } from '../../common/services/contact.service';
+import { Component, OnInit } from '@angular/core';
+import { Contact } from './models/contact.model';
+import { ContactService } from '../common/services/contact.service';
 import { Observable } from 'rxjs/Rx';
 import { id } from 'angular2/src/i18n/message';
-import { Router, ActivatedRoute } from '@angular/router';
-import { AvatarService } from '../../common/services/avatar.service';
+import { Router } from '@angular/router';
+import { AvatarService } from '../common/services/avatar.service';
 @Component({
   selector: 'add-contact-component',
-  template: require('./../templates/add-contact.component.html')
+  template: require('./templates/add-contact.component.html')
 })
 export class AddContactComponent implements OnInit {
   getSurname: Observable<string>;
@@ -35,6 +34,6 @@ export class AddContactComponent implements OnInit {
     this.active = false;
     console.log(contact);
     this.contactService.insertContact(contact);
-    this.router.navigateByUrl('/+contacts');
+    this.router.navigateByUrl('/contacts');
   }
 }

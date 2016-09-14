@@ -1,8 +1,8 @@
 "use strict";
 var home_component_1 = require("./main-module/home/home.component");
-var contacts_list_model_1 = require("./main-module/+contacts/models/contacts-list.model.ts");
-var modify_contact_model_1 = require("./main-module/+contacts/models/modify-contact.model.ts");
-var add_contact_model_1 = require("./main-module/+contacts/models/add-contact.model.ts");
+var contacts_list_model_1 = require("./main-module/contacts/contacts-list.component.ts");
+var modify_contact_model_1 = require("./main-module/contacts/modify-contact.component.ts");
+var add_contact_model_1 = require("./main-module/contacts/add-contact.component.ts");
 var calendar_component_1 = require("./main-module/calendar/calendar.component");
 exports.ROUTER_CONFIG = [
   {path: '', component: home_component_1.Home, pathMatch: 'full'},

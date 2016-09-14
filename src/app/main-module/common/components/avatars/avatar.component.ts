@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, NgZone, ChangeDetectorRef } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AvatarService } from '../../services/avatar.service';
 import any = jasmine.any;
 @Component({

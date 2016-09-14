@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Contact, ContactWithKey } from '../../+contacts/models/contact.model';
+import { Contact, ContactWithKey } from '../../contacts/models/contact.model';
 import { Headers, RequestOptions, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { BehaviorSubject } from 'rxjs';
@@ -13,8 +13,8 @@ export class ContactService {
   }
 
   getContacts() {
-    this.contacts = this.af.database.list('data/+contacts');
-    this.af.database.list('data/+contacts')
+    this.contacts = this.af.database.list('data/contacts');
+    this.af.database.list('data/contacts')
       .subscribe(data => console.log(data));
   }
 

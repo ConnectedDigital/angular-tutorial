@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ContactService } from '../../common/services/contact.service';
-import { ContactWithKey } from './contact.model';
+import { Component, OnInit } from '@angular/core';
+import { ContactService } from '../common/services/contact.service';
+import { ContactWithKey } from './models/contact.model';
 import { Router } from '@angular/router';
 @Component({
   selector: 'my-contact-list-component',
-  template: require('./../templates/contacts-list.component.html')
+  template: require('./templates/contacts-list.component.html')
 })
 export class ContactListComponent implements OnInit {
   selectedContact: ContactWithKey = null;
