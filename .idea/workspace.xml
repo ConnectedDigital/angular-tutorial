@@ -4,27 +4,6 @@
     <list default="true" id="6cf6410a-4bf9-4e8d-9be8-70aca249c361" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.component.js" afterPath="$PROJECT_DIR$/src/app/app.component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.component.js.map" afterPath="$PROJECT_DIR$/src/app/app.component.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.module.js.map" afterPath="$PROJECT_DIR$/src/app/app.module.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main-module/+contacts/models/add-contact.model.js" afterPath="$PROJECT_DIR$/src/app/main-module/+contacts/models/add-contact.model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main-module/+contacts/models/add-contact.model.js.map" afterPath="$PROJECT_DIR$/src/app/main-module/+contacts/models/add-contact.model.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main-module/+contacts/models/contacts-list.model.js.map" afterPath="$PROJECT_DIR$/src/app/main-module/+contacts/models/contacts-list.model.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main-module/+contacts/models/modify-contact.model.js" afterPath="$PROJECT_DIR$/src/app/main-module/+contacts/models/modify-contact.model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main-module/+contacts/models/modify-contact.model.js.map" afterPath="$PROJECT_DIR$/src/app/main-module/+contacts/models/modify-contact.model.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main-module/calendar/calendar.component.js" afterPath="$PROJECT_DIR$/src/app/main-module/calendar/calendar.component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main-module/calendar/calendar.component.js.map" afterPath="$PROJECT_DIR$/src/app/main-module/calendar/calendar.component.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main-module/common/components/avatars/avatar.component.js" afterPath="$PROJECT_DIR$/src/app/main-module/common/components/avatars/avatar.component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main-module/common/components/avatars/avatar.component.js.map" afterPath="$PROJECT_DIR$/src/app/main-module/common/components/avatars/avatar.component.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main-module/common/services/avatar.service.js" afterPath="$PROJECT_DIR$/src/app/main-module/common/services/avatar.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main-module/common/services/avatar.service.js.map" afterPath="$PROJECT_DIR$/src/app/main-module/common/services/avatar.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main-module/common/services/calendar.service.js" afterPath="$PROJECT_DIR$/src/app/main-module/common/services/calendar.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main-module/common/services/calendar.service.js.map" afterPath="$PROJECT_DIR$/src/app/main-module/common/services/calendar.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/routes.routes.js" afterPath="$PROJECT_DIR$/src/app/routes.routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/routes.routes.js.map" afterPath="$PROJECT_DIR$/src/app/routes.routes.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.browser.js.map" afterPath="$PROJECT_DIR$/src/main.browser.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor.browser.js" afterPath="$PROJECT_DIR$/src/vendor.browser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/vendor.browser.js.map" afterPath="$PROJECT_DIR$/src/vendor.browser.js.map" />
     </list>
     <ignored path="contacts.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,7 +51,7 @@
       <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
+            <state relative-caret-position="1375">
               <caret line="55" column="6" selection-start-line="55" selection-start-column="2" selection-end-line="55" selection-end-column="6" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
@@ -107,8 +86,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+            <state relative-caret-position="171">
+              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -243,38 +222,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular-tutorial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular-tutorial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular-tutorial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular-tutorial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main.browser.ts" />
-              <option name="myItemType" value="com.intellij.lang.typescript.compiler.ui.projectView.TypeScriptNestingTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -290,19 +237,6 @@
     <property name="nodejs_interpreter_path" value="$PROJECT_DIR$/../../node/node" />
     <property name="prop_add_unversioned_files" value="true" />
     <property name="SearchEverywhereHistoryKey" value="favicon&#9;null&#9;null&#10;git&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/.gitignore&#10;contactSer&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/src/app/main-module/common/services/contact.service.ts&#10;vend&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/src/vendor.browser.ts&#10;vendor&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/src/vendor.browser.ts&#10;pac&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/package.json&#10;packa&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/package.json&#10;jquery-ui&#9;null&#9;null&#10;package&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/package.json&#10;tsconfig&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/tsconfig.json&#10;index&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/src/index.html&#10;webpack.dev.js&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/config/webpack.dev.js&#10;webpack&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/webpack.config.js&#10;bowe&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/node_modules/jquery/bower.json&#10;app&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/src/app/app.component.html&#10;assets&#9;null&#9;null&#10;webpack.common.js&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/config/webpack.common.js&#10;module&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/src/app/app.module.ts&#10;webpack.com&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/config/webpack.common.js&#10;webpack.&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/config/webpack.common.js&#10;ca&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/src/app/main-module/calendar/calendar.component.html&#10;web&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/webpack.config.js&#10;app.&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/src/app/app.module.ts&#10;vendor.ts&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/src/vendor.browser.ts&#10;polyfills.ts&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/src/polyfills.browser.ts&#10;ven&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/src/vendor.browser.ts&#10;polyfills&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/src/polyfills.browser.ts&#10;gulpfile.js&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/node_modules/protractor/gulpfile.js&#10;system.js&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/node_modules/core-js/es7/system.js&#10;system.&#9;FILE&#9;file://E:/Programowanie/front-end/projects/angular-tutorial/node_modules/core-js/library/es7/system.js&#10;SystemJS&#9;null&#9;null&#10;systemjs&#9;null&#9;null" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Programowanie\front-end\projects\angular-tutorial\src\app\main-module\common\services" />
-      <recent name="E:\Programowanie\front-end\projects\angular-tutorial\src\app\main-module\calendar" />
-      <recent name="E:\Programowanie\front-end\projects\angular-tutorial\src" />
-      <recent name="E:\Programowanie\front-end\projects\angular-tutorial" />
-      <recent name="E:\Programowanie\front-end\projects\angular-tutorial\src\app" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Programowanie\front-end\projects\angular-tutorial\src\assets" />
-      <recent name="E:\Programowanie\front-end\projects\angular-tutorial\assets" />
-    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -362,9 +296,6 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="6cf6410a-4bf9-4e8d-9be8-70aca249c361" name="Default" comment="" />
@@ -386,33 +317,25 @@
       <workItem from="1473843710795" duration="756000" />
       <workItem from="1473846277352" duration="616000" />
       <workItem from="1473847088559" duration="841000" />
+      <workItem from="1473848074448" duration="97000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124098000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="124195000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3252662" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26146546" sideWeight="0.45033112" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26093832" sideWeight="0.45033112" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297244" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36220473" sideWeight="0.50396615" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26251978" sideWeight="0.54966885" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297244" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32913843" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34753147" sideWeight="0.49603385" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34753147" sideWeight="0.49603385" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -613,7 +536,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
+        <state relative-caret-position="1375">
           <caret line="55" column="6" selection-start-line="55" selection-start-column="2" selection-end-line="55" selection-end-column="6" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
@@ -634,8 +557,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+        <state relative-caret-position="171">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding />
         </state>
       </provider>
