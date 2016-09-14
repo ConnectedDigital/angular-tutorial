@@ -13,8 +13,4 @@ logs
 
 # Webpack
 src/config.ts
-src/config-dev.ts
-src/config-local-home.ts
-src/config-local.ts
-src/config-prod.ts
-!/src/assets/icons/yack/style.css
+
