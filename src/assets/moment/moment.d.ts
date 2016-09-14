@@ -12,10 +12,8 @@ declare function moment(date: string, formatsIncludingSpecial: any[], language?:
 declare function moment(date: Date): moment.Moment;
 declare function moment(date: moment.Moment): moment.Moment;
 declare function moment(date: Object): moment.Moment;
-
 declare namespace moment {
   type formatFunction = () => string;
-
   interface MomentDateObject {
     years?: number;
     /* One digit */
@@ -27,14 +25,12 @@ declare namespace moment {
     seconds?: number;
     milliseconds?: number;
   }
-
   interface MomentLanguageData extends BaseMomentLanguage {
     /**
-    * @param formatType should be L, LL, LLL, LLLL.
-    */
+     * @param formatType should be L, LL, LLL, LLLL.
+     */
     longDateFormat(formatType: string): string;
   }
-
   interface Duration {
     humanize(withSuffix?: boolean): string;
 
@@ -75,7 +71,6 @@ declare namespace moment {
     toISOString(): string;
     toJSON(): string;
   }
-
   interface MomentInput {
     /** Year */
     years?: number;
@@ -135,7 +130,6 @@ declare namespace moment {
     /** Millisecond */
     ms?: number;
   }
-
   interface MomentCalendar {
     lastDay?: string | formatFunction;
     sameDay?: string | formatFunction;
@@ -144,7 +138,6 @@ declare namespace moment {
     nextWeek?: string | formatFunction;
     sameElse?: string | formatFunction;
   }
-
   interface MomentRelativeTime {
     future: any;
     past: any;
@@ -160,7 +153,6 @@ declare namespace moment {
     y: any;
     yy: any;
   }
-
   interface MomentLongDateFormat {
     L: string;
     LL: string;
@@ -175,22 +167,20 @@ declare namespace moment {
     lt?: string;
     lts?: string;
   }
-
   interface MomentParsingFlags {
-     empty: boolean;
-     unusedTokens: string[];
-     unusedInput: string[];
-     overflow: number;
-     charsLeftOver: number;
-     nullInput: boolean;
-     invalidMonth?: string;
-     invalidFormat: boolean;
-     userInvalidated: boolean;
-     iso: boolean;
-     parsedDateParts: any[];
-     meridiem?: string;
+    empty: boolean;
+    unusedTokens: string[];
+    unusedInput: string[];
+    overflow: number;
+    charsLeftOver: number;
+    nullInput: boolean;
+    invalidMonth?: string;
+    invalidFormat: boolean;
+    userInvalidated: boolean;
+    iso: boolean;
+    parsedDateParts: any[];
+    meridiem?: string;
   }
-
   interface BaseMomentLanguage {
     months?: any;
     monthsShort?: any;
@@ -202,21 +192,18 @@ declare namespace moment {
     calendar?: MomentCalendar;
     ordinal?: (num: number) => string;
   }
-
   interface MomentLanguage extends BaseMomentLanguage {
     longDateFormat?: MomentLongDateFormat;
   }
-
   type UnitOfTime = ("year" | "years" | "y" |
-              "quarter" | "quarters" | "Q" |
-              "month" | "months" | "M" |
-              "week" | "weeks" | "w" |
-              "day" | "days" | "d" |
-              "hour" | "hours" | "h" |
-              "minute" | "minutes" | "m" |
-              "second" | "seconds" | "s" |
-              "millisecond" | "milliseconds" | "ms");
-
+    "quarter" | "quarters" | "Q" |
+    "month" | "months" | "M" |
+    "week" | "weeks" | "w" |
+    "day" | "days" | "d" |
+    "hour" | "hours" | "h" |
+    "minute" | "minutes" | "m" |
+    "second" | "seconds" | "s" |
+    "millisecond" | "milliseconds" | "ms");
   interface Moment {
     format(format: string): string;
     format(): string;
@@ -227,71 +214,71 @@ declare namespace moment {
     endOf(unitOfTime: UnitOfTime): Moment;
 
     /**
-    * Mutates the original moment by adding time. (deprecated in 2.8.0)
-    *
-    * @param unitOfTime the unit of time you want to add (eg "years" / "hours" etc)
-    * @param amount the amount you want to add
-    */
+     * Mutates the original moment by adding time. (deprecated in 2.8.0)
+     *
+     * @param unitOfTime the unit of time you want to add (eg "years" / "hours" etc)
+     * @param amount the amount you want to add
+     */
     add(unitOfTime: UnitOfTime, amount: number): Moment;
     /**
-    * Mutates the original moment by adding time.
-    *
-    * @param amount the amount you want to add
-    * @param unitOfTime the unit of time you want to add (eg "years" / "hours" etc)
-    */
+     * Mutates the original moment by adding time.
+     *
+     * @param amount the amount you want to add
+     * @param unitOfTime the unit of time you want to add (eg "years" / "hours" etc)
+     */
     add(amount: number, unitOfTime: UnitOfTime): Moment;
     /**
-    * Mutates the original moment by adding time. Note that the order of arguments can be flipped.
-    *
-    * @param amount the amount you want to add
-    * @param unitOfTime the unit of time you want to add (eg "years" / "hours" etc)
-    */
+     * Mutates the original moment by adding time. Note that the order of arguments can be flipped.
+     *
+     * @param amount the amount you want to add
+     * @param unitOfTime the unit of time you want to add (eg "years" / "hours" etc)
+     */
     add(amount: string, unitOfTime: UnitOfTime): Moment;
     /**
-    * Mutates the original moment by adding time.
-    *
-    * @param objectLiteral an object literal that describes multiple time units {days:7,months:1}
-    */
+     * Mutates the original moment by adding time.
+     *
+     * @param objectLiteral an object literal that describes multiple time units {days:7,months:1}
+     */
     add(objectLiteral: MomentInput): Moment;
     /**
-    * Mutates the original moment by adding time.
-    *
-    * @param duration a length of time
-    */
+     * Mutates the original moment by adding time.
+     *
+     * @param duration a length of time
+     */
     add(duration: Duration): Moment;
 
     /**
-    * Mutates the original moment by subtracting time. (deprecated in 2.8.0)
-    *
-    * @param unitOfTime the unit of time you want to subtract (eg "years" / "hours" etc)
-    * @param amount the amount you want to subtract
-    */
+     * Mutates the original moment by subtracting time. (deprecated in 2.8.0)
+     *
+     * @param unitOfTime the unit of time you want to subtract (eg "years" / "hours" etc)
+     * @param amount the amount you want to subtract
+     */
     subtract(unitOfTime: UnitOfTime, amount: number): Moment;
     /**
-    * Mutates the original moment by subtracting time.
-    *
-    * @param unitOfTime the unit of time you want to subtract (eg "years" / "hours" etc)
-    * @param amount the amount you want to subtract
-    */
+     * Mutates the original moment by subtracting time.
+     *
+     * @param unitOfTime the unit of time you want to subtract (eg "years" / "hours" etc)
+     * @param amount the amount you want to subtract
+     */
     subtract(amount: number, unitOfTime: UnitOfTime): Moment;
     /**
-    * Mutates the original moment by subtracting time. Note that the order of arguments can be flipped.
-    *
-    * @param amount the amount you want to add
-    * @param unitOfTime the unit of time you want to subtract (eg "years" / "hours" etc)
-    */
+     * Mutates the original moment by subtracting time. Note that the order of arguments can be flipped.
+     *
+     * @param amount the amount you want to add
+     * @param unitOfTime the unit of time you want to subtract (eg "years" / "hours" etc)
+     */
     subtract(amount: string, unitOfTime: UnitOfTime): Moment;
     /**
-    * Mutates the original moment by subtracting time.
-    *
-    * @param objectLiteral an object literal that describes multiple time units {days:7,months:1}
-    */
+     * Mutates the original moment by subtracting time.
+     *
+     * @param objectLiteral an object literal that describes multiple time units {days:7,months:1}
+     */
     subtract(objectLiteral: MomentInput): Moment;
     /**
-    * Mutates the original moment by subtracting time.
-    *
-    * @param duration a length of time
-    */
+     * Mutates the original moment by subtracting time.
+     *
+     * @param duration a length of time
+     */
     subtract(duration: Duration): Moment;
 
     calendar(): string;
@@ -301,14 +288,12 @@ declare namespace moment {
     clone(): Moment;
 
     /**
-    * @return Unix timestamp, or milliseconds since the epoch.
-    */
+     * @return Unix timestamp, or milliseconds since the epoch.
+     */
     valueOf(): number;
 
     local(): Moment; // current date/time in local mode
-
     utc(): Moment; // current date/time in UTC mode
-
     isValid(): boolean;
     invalidAt(): number;
 
@@ -431,7 +416,6 @@ declare namespace moment {
     //Works with version 2.10.5+
     toObject(): MomentDateObject;
   }
-
   export var version: string;
   export var fn: Moment;
 
@@ -449,9 +433,12 @@ declare namespace moment {
   export function unix(timestamp: number): Moment;
 
   export function invalid(parsingFlags?: Object): Moment;
+
   export function isMoment(): boolean;
   export function isMoment(m: any): m is Moment;
+
   export function isDate(m: any): m is Date;
+
   export function isDuration(): boolean;
   export function isDuration(d: any): d is Duration;
 
@@ -485,6 +472,7 @@ declare namespace moment {
   export function months(index: number): string;
   export function months(format: string): string[];
   export function months(format: string, index: number): string;
+
   export function monthsShort(): string[];
   export function monthsShort(index: number): string;
   export function monthsShort(format: string): string[];
@@ -498,6 +486,7 @@ declare namespace moment {
   export function weekdays(localeSorted: boolean, index: number): string;
   export function weekdays(localeSorted: boolean, format: string): string[];
   export function weekdays(localeSorted: boolean, format: string, index: number): string;
+
   export function weekdaysShort(): string[];
   export function weekdaysShort(index: number): string;
   export function weekdaysShort(format: string): string[];
@@ -506,6 +495,7 @@ declare namespace moment {
   export function weekdaysShort(localeSorted: boolean, index: number): string;
   export function weekdaysShort(localeSorted: boolean, format: string): string[];
   export function weekdaysShort(localeSorted: boolean, format: string, index: number): string;
+
   export function weekdaysMin(): string[];
   export function weekdaysMin(index: number): string;
   export function weekdaysMin(format: string): string[];
@@ -516,21 +506,24 @@ declare namespace moment {
   export function weekdaysMin(localeSorted: boolean, format: string, index: number): string;
 
   export function min(...moments: Moment[]): Moment;
+
   export function max(...moments: Moment[]): Moment;
 
   export function normalizeUnits(unit: string): string;
+
   export function relativeTimeThreshold(threshold: string): number | boolean;
   export function relativeTimeThreshold(threshold: string, limit: number): boolean;
+
   export function relativeTimeRounding(fn: (num: number) => number): boolean;
   export function relativeTimeRounding(): (num: number) => number;
+
   export function calendarFormat(m: Moment, now: Moment): string;
 
   /**
-  * Constant used to enable explicit ISO_8601 format parsing.
-  */
+   * Constant used to enable explicit ISO_8601 format parsing.
+   */
   export function ISO_8601(): void;
 
   export var defaultFormat: string;
 }
-
 export = moment;

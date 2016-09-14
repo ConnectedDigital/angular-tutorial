@@ -12,38 +12,38 @@
 //>>description: Functions to generate and remove uniqueId's
 //>>docs: http://api.jqueryui.com/uniqueId/
 
-( function( factory ) {
-	if ( typeof define === "function" && define.amd ) {
+( function (factory) {
+	if (typeof define === "function" && define.amd) {
 
 		// AMD. Register as an anonymous module.
-		define( [ "jquery", "./version" ], factory );
+		define(["jquery", "./version"], factory);
 	} else {
 
 		// Browser globals
-		factory( jQuery );
+		factory(jQuery);
 	}
-} ( function( $ ) {
+}(function ($) {
 
-return $.fn.extend( {
-	uniqueId: ( function() {
-		var uuid = 0;
+	return $.fn.extend({
+		uniqueId: (function () {
+			var uuid = 0;
 
-		return function() {
-			return this.each( function() {
-				if ( !this.id ) {
-					this.id = "ui-id-" + ( ++uuid );
+			return function () {
+				return this.each(function () {
+					if (!this.id) {
+						this.id = "ui-id-" + ( ++uuid );
+					}
+				});
+			};
+		})(),
+
+		removeUniqueId: function () {
+			return this.each(function () {
+				if (/^ui-id-\d+$/.test(this.id)) {
+					$(this).removeAttr("id");
 				}
-			} );
-		};
-	} )(),
+			});
+		}
+	});
 
-	removeUniqueId: function() {
-		return this.each( function() {
-			if ( /^ui-id-\d+$/.test( this.id ) ) {
-				$( this ).removeAttr( "id" );
-			}
-		} );
-	}
-} );
-
-} ) );
+}) );
