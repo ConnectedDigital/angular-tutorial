@@ -9,7 +9,7 @@ import { AvatarService } from '../common/services/avatar.service';
   selector: 'add-contact-component',
   template: require('./templates/add-contact.component.html')
 })
-export class AddContactComponent implements OnInit {
+export class AddContactComponent {
   getSurname: Observable<string>;
   powers = ['Really Smart', 'Super Flexible',
     'Super Hot', 'Weather Changer'];
