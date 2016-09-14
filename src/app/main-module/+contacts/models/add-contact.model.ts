@@ -1,17 +1,15 @@
-import {Component, OnInit, Input} from '@angular/core';
-import { NgForm }    from '@angular/forms';
-import {Contact} from "./contact.model";
-import {ContactService} from "../../common/services/contact.service";
-import {Observable} from "rxjs/Rx";
-import {id} from "angular2/src/i18n/message";
-import {Router} from "@angular/router";
-import {ActivatedRoute} from "@angular/router";
-import {AvatarService} from "../../common/services/avatar.service";
+import {Component, OnInit} from '@angular/core';
+import {Contact} from './contact.model';
+import {ContactService} from '../../common/services/contact.service';
+import {Observable} from 'rxjs/Rx';
+import {id} from 'angular2/src/i18n/message';
+import {Router} from '@angular/router';
+import {AvatarService} from '../../common/services/avatar.service';
 
 @Component({
   selector: 'add-contact-component',
   template: require('./../templates/add-contact.component.html'),
-  styles:[
+  styles: [
     `
       label{
         display: inline-block;
@@ -22,42 +20,46 @@ import {AvatarService} from "../../common/services/avatar.service";
         }
     `
   ]
-
 })
 export class AddContactComponent implements OnInit {
-  getSurname:Observable<string>;
+  getSurname: Observable<string>;
 
-  ngOnInit():any { // to fetch surname
+  ngOnInit(): any { // to fetch surname
     /**
-    this.getSurname = this.router
-      .routerState
-      .map(params => params['surname'] || '');
-*/
+     this.getSurname = this.router
+     .routerState
+     .map(params => params['surname'] || '');
+     */
   }
+
   powers = ['Really Smart', 'Super Flexible',
     'Super Hot', 'Weather Changer'];
 
 
-  placesOfBirt=['Rzeszow', 'Warsaw',
+  placesOfBirt = ['Rzeszow', 'Warsaw',
     'Super Hot', 'Weather Changer'];
 
 
-  constructor(private contactService:ContactService,private avatarService:AvatarService, private router:Router) {
+  constructor(private contactService: ContactService, private avatarService: AvatarService, private router: Router) {
 
-      console.log('Contact-form');
+    console.log('Contact-form');
 
   }
 
-  contact=new Contact(null,null,null,null);
+  contact = new Contact(null, null, null, null);
   submitted = false;
-  onSubmit() { this.submitted = true; }
+
+  onSubmit() {
+    this.submitted = true;
+  }
+
   active = true;
 
-  addNewContact(name:string, surname:string, tel:number, birth:string) {
+  addNewContact(name: string, surname: string, tel: number, birth: string) {
     event.preventDefault();
 
-    let contact:Contact = {name: name, surname: surname, tel: tel, birth: birth};
-    this.active=false;
+    let contact: Contact = {name: name, surname: surname, tel: tel, birth: birth};
+    this.active = false;
     console.log(contact);
     this.contactService.insertContact(contact);
     this.router.navigateByUrl('/contacts');
