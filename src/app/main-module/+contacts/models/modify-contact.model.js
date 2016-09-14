@@ -9,14 +9,11 @@ var ModifyContactComponent = (function () {
         this.avatarService = avatarService;
         this.contactService = contactService;
         this.router = router;
-        this.avatar = null;
+        this._contact = null;
     }
     Object.defineProperty(ModifyContactComponent.prototype, "selectedContact", {
         set: function (selectedContact) {
-            var _this = this;
             this._contact = selectedContact;
-            this.avatarService.getAvatar(this._contact.$key)
-                .then(function (url) { _this.avatar = url; });
         },
         enumerable: true,
         configurable: true
@@ -38,8 +35,9 @@ var ModifyContactComponent = (function () {
         this.router.navigateByUrl('/contacts');
     };
     ModifyContactComponent.prototype.delete = function () {
-        //this.avatarService.deleteAvatar(this._contact.$key);
         this.contactService.deleteContact(this._contact.$key);
+        this.avatarService.deleteAvatar(this._contact.$key);
+        this.router.navigateByUrl('/contacts');
     };
     __decorate([
         core_1.Input(), 
@@ -54,7 +52,7 @@ var ModifyContactComponent = (function () {
     ModifyContactComponent = __decorate([
         core_1.Component({
             selector: 'modify-contact-component',
-            template: require('./../templates/modify-contact.component.html'),
+            template: require('./../templates/modify-contact.component.html')
         }), 
         __metadata('design:paramtypes', [avatar_service_1.AvatarService, contact_service_1.ContactService, router_1.Router])
     ], ModifyContactComponent);
