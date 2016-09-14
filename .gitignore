@@ -1,6 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 /config/
 /.vscode/
+/.idea/
 /.editorconfig
 /npm-debug.log.1058380327
 /Dockerfile
