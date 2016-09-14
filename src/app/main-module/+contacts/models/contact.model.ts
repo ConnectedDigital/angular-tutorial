@@ -1,9 +1,9 @@
 export class Contact {
   constructor(
-              public name: string,
-              public surname: string,
-              public tel: number,
-              public birth: string) {
+    public name: string,
+    public surname: string,
+    public tel: number,
+    public birth: string) {
   }
 }
 

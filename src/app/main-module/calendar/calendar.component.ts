@@ -1,7 +1,5 @@
-import {Component,OnInit, ChangeDetectorRef} from "@angular/core";
+import {Component, OnInit, ChangeDetectorRef} from "@angular/core";
 import {CalendarService} from "../common/services/calendar.service";
-
-
 
 
 @Component({
@@ -10,7 +8,6 @@ import {CalendarService} from "../common/services/calendar.service";
 
 })
 export class CalendarComponent implements OnInit {
-
 
 
   events: any[];
@@ -23,7 +20,8 @@ export class CalendarComponent implements OnInit {
 
   idGen: number = 100;
 
-  constructor(private calendarService: CalendarService, private cd: ChangeDetectorRef) { }
+  constructor(private calendarService: CalendarService, private cd: ChangeDetectorRef) {
+  }
 
   ngOnInit() {
 // this.calendarService.getEvents().then(events => {this.events = events;});
@@ -60,26 +58,26 @@ export class CalendarComponent implements OnInit {
 
   handleDayClick(event) {
     this.event = new MyEvent();
-  this.event.start = event.date.format();
-   this.dialogVisible = true;
-  this.dialogVisible=true;
-   // trigger detection manually as somehow only moving the mouse quickly after click triggers the automatic detection
+    this.event.start = event.date.format();
+    this.dialogVisible = true;
+    this.dialogVisible = true;
+    // trigger detection manually as somehow only moving the mouse quickly after click triggers the automatic detection
     this.cd.detectChanges();
   }
 
   handleEventClick(e) {
-   this.event = new MyEvent();
+    this.event = new MyEvent();
 
 
     this.event.title = e.calEvent.title;
 
     let start = e.calEvent.start;
     let end = e.calEvent.end;
-    if(e.view.name === 'month') {
+    if (e.view.name === 'month') {
       start.stripTime();
     }
 
-    if(end) {
+    if (end) {
       end.stripTime();
       this.event.end = end.format();
     }
@@ -92,9 +90,9 @@ export class CalendarComponent implements OnInit {
 
   saveEvent() {
     //update
-    if(this.event.id) {
+    if (this.event.id) {
       let index: number = this.findEventIndexById(this.event.id);
-      if(index >= 0) {
+      if (index >= 0) {
         this.events[index] = this.event;
       }
     }
@@ -110,7 +108,7 @@ export class CalendarComponent implements OnInit {
 
   deleteEvent() {
     let index: number = this.findEventIndexById(this.event.id);
-    if(index >= 0) {
+    if (index >= 0) {
       this.events.splice(index, 1);
     }
     this.dialogVisible = false;
@@ -118,8 +116,8 @@ export class CalendarComponent implements OnInit {
 
   findEventIndexById(id: number) {
     let index = -1;
-    for(let i = 0; i < this.events.length; i++) {
-      if(id == this.events[i].id) {
+    for (let i = 0; i < this.events.length; i++) {
+      if (id == this.events[i].id) {
         index = i;
         break;
       }
