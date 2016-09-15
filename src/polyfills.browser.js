@@ -28,8 +28,8 @@ require('ts-helpers');
 if ('production' === ENV) {
 }
 else {
-    // Development
-    Error.stackTraceLimit = Infinity;
-    require('zone.js/dist/long-stack-trace-zone');
+  // Development
+  Error.stackTraceLimit = Infinity;
+  require('zone.js/dist/long-stack-trace-zone');
 }
 //# sourceMappingURL=polyfills.browser.js.map

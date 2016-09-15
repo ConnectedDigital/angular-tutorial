@@ -1,15 +1,15 @@
-( function( factory ) {
-	if ( typeof define === "function" && define.amd ) {
+( function (factory) {
+	if (typeof define === "function" && define.amd) {
 
 		// AMD. Register as an anonymous module.
-		define( [ "jquery", "./version" ], factory );
+		define(["jquery", "./version"], factory);
 	} else {
 
 		// Browser globals
-		factory( jQuery );
+		factory(jQuery);
 	}
-} ( function( $ ) {
+}(function ($) {
 
 // This file is deprecated
-return $.ui.ie = !!/msie [\w.]+/.exec( navigator.userAgent.toLowerCase() );
-} ) );
+	return $.ui.ie = !!/msie [\w.]+/.exec(navigator.userAgent.toLowerCase());
+}) );

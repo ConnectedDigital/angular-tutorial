@@ -12,24 +12,24 @@
 //>>description: Selects elements which can be tabbed to.
 //>>docs: http://api.jqueryui.com/tabbable-selector/
 
-( function( factory ) {
-	if ( typeof define === "function" && define.amd ) {
+( function (factory) {
+	if (typeof define === "function" && define.amd) {
 
 		// AMD. Register as an anonymous module.
-		define( [ "jquery", "./version", "./focusable" ], factory );
+		define(["jquery", "./version", "./focusable"], factory);
 	} else {
 
 		// Browser globals
-		factory( jQuery );
+		factory(jQuery);
 	}
-} ( function( $ ) {
+}(function ($) {
 
-return $.extend( $.expr[ ":" ], {
-	tabbable: function( element ) {
-		var tabIndex = $.attr( element, "tabindex" ),
-			hasTabindex = tabIndex != null;
-		return ( !hasTabindex || tabIndex >= 0 ) && $.ui.focusable( element, hasTabindex );
-	}
-} );
+	return $.extend($.expr[":"], {
+		tabbable: function (element) {
+			var tabIndex = $.attr(element, "tabindex"),
+				hasTabindex = tabIndex != null;
+			return ( !hasTabindex || tabIndex >= 0 ) && $.ui.focusable(element, hasTabindex);
+		}
+	});
 
-} ) );
+}) );
