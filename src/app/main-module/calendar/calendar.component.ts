@@ -81,13 +81,6 @@ export class CalendarComponent implements OnInit {
 
   send() {
     var model = new SimplyCalendarModel();
-    // model.end = this.calendarContact.end;
-    // model.start = this.calendarContact.start;
-    // model.id = this.pickContact.$key;
-    // // model.id ='-KRYqCIsaar9Hu4DGYn9';
-    // model.title = this.pickContact.name+' '+this.pickContact.surname;
-    // this.calendarService.insertCalendarContact(model);
-    var model = new SimplyCalendarModel();
     model.end = '2016-01-03';
     model.start = '2016-01-01';
     model.id =  '-KSSmfG-A-hsQZR_lEWN';

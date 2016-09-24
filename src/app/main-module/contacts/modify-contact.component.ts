@@ -38,7 +38,6 @@ export class ModifyContactComponent {
       tel: this._contact.tel,
       birth: this._contact.birth
     };
-    this.calendarService.getCalendarContacts();
     this.contactService.updateContact(this._contact.$key, contact);
     this.calendarService.updateAllCalendarContact(this._contact.$key,contact);
     this.router.navigateByUrl('/contacts');
