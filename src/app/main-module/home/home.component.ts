@@ -5,6 +5,5 @@ import { Component } from '@angular/core';
 })
 export class Home {
   constructor() {
-    console.log('hello `Home` component');
   }
 }

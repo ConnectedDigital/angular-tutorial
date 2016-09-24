@@ -3,6 +3,7 @@ import { ContactWithKey } from './models/contact.model';
 import { AvatarService } from '../common/services/avatar.service';
 import { ContactService } from '../common/services/contact.service';
 import { Router } from '@angular/router';
+import {CalendarService} from '../common/services/calendar.service';
 @Component({
   selector: 'modify-contact-component',
   template: require('./templates/modify-contact.component.html')
@@ -12,7 +13,9 @@ export class ModifyContactComponent {
   _avatarSize: number;
 
   constructor(private avatarService: AvatarService,
-              private contactService: ContactService, private router: Router) {
+              private contactService: ContactService,
+              private calendarService: CalendarService,
+              private router: Router) {
   }
 
   @Input() set selectedContact(selectedContact: ContactWithKey) {
@@ -35,12 +38,16 @@ export class ModifyContactComponent {
       tel: this._contact.tel,
       birth: this._contact.birth
     };
+    this.calendarService.getCalendarContacts();
     this.contactService.updateContact(this._contact.$key, contact);
+    this.calendarService.updateAllCalendarContact(this._contact.$key,contact);
     this.router.navigateByUrl('/contacts');
   }
 
   delete() {
+    this.calendarService.getCalendarContacts();
     this.contactService.deleteContact(this._contact.$key);
+    this.calendarService.deleteAllCalendarContact(this._contact.$key);
     this.avatarService.deleteAvatar(this._contact.$key);
     this.router.navigateByUrl('/contacts');
   }
