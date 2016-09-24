@@ -40,7 +40,7 @@ export class CalendarService {
       var readContact = snapshot.val();
       var key = snapshot.key;
       if (readContact.id == $key) {
-        this.deleteCalendarContact(key);
+        firebase.database().ref('data/calendar/' + key).remove();
       }
     });
   }
@@ -50,7 +50,6 @@ export class CalendarService {
       var readContact = snapshot.val();
       var key = snapshot.key;
       if (readContact.id == $key) {
-        console.log($key+' '+key );
         firebase.database().ref('data/calendar/' + key).update({
           title: contact.name+' '+contact.surname
         });
