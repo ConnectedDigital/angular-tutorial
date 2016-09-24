@@ -10,9 +10,6 @@ import { AvatarService } from '../common/services/avatar.service';
   template: require('./templates/add-contact.component.html')
 })
 export class AddContactComponent {
-  getSurname: Observable<string>;
-  powers = ['Really Smart', 'Super Flexible',
-    'Super Hot', 'Weather Changer'];
   placesOfBirt = ['Rzeszow', 'Warsaw',
     'Super Hot', 'Weather Changer'];
   contact = new Contact(null, null, null, null);

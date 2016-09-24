@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { AvatarService } from '../../services/avatar.service';
-import any = jasmine.any;
 @Component({
   template: require('./avatar.component.html'),
   selector: 'avatar-component',
