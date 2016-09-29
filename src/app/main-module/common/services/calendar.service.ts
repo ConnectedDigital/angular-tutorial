@@ -8,7 +8,8 @@ let moment = require('moment');
 @Injectable()
 export class CalendarService {
   public calendarContacts: FirebaseListObservable<SimplyCalendarModel[]>;
-  public selectedContactsByDate: SimplyCalendarModel[];
+  public todaysCalendarContacts: SimplyCalendarModel[];
+  public tomorowsCalendarContacts: SimplyCalendarModel[];
 
   constructor(private af: AngularFire) {
   }
@@ -20,15 +21,26 @@ export class CalendarService {
         err => console.log('Error in getCalendarContacts'));
   }
 
-  getCalendarContactsByDate(date: string) {
+  getTodaysCalendarContacts(date: string) {
     this.af.database.list('data/calendar').map(val => {
-      this.selectedContactsByDate = [];
+      this.todaysCalendarContacts = [];
       return val.map((calendarContact) => {
         if (this.checkDate(date, calendarContact)) { // if calendarContact is today
-          this.selectedContactsByDate.push(calendarContact);
+          this.todaysCalendarContacts.push(calendarContact);
         }
       });
-    }).subscribe(data => console.log(this.selectedContactsByDate));
+    }).subscribe(data => console.log(this.todaysCalendarContacts));
+  }
+
+  getTomorowsCalendarContacts(date: string) {
+    this.af.database.list('data/calendar').map(val => {
+      this.tomorowsCalendarContacts = [];
+      return val.map((calendarContact) => {
+        if (this.checkDate(date, calendarContact)) { // if calendarContact is today
+          this.tomorowsCalendarContacts.push(calendarContact);
+        }
+      });
+    }).subscribe(data => console.log(this.tomorowsCalendarContacts));
   }
 
   insertCalendarContact(data: CalendarModel) {

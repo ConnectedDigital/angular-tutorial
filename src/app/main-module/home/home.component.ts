@@ -10,7 +10,12 @@ export class Home implements OnInit {
   }
 
   ngOnInit() {
-    this.calendarService.getCalendarContactsByDate(
-      DateFormatter.format(new Date(), 'pt', 'yyyy-MM-dd'));
+    let date = new Date();
+    this.calendarService.getTodaysCalendarContacts(
+      DateFormatter.format(date, 'pt', 'yyyy-MM-dd'));
+
+    date.setDate(date.getDate()+1);
+    this.calendarService.getTomorowsCalendarContacts(
+      DateFormatter.format(date, 'pt', 'yyyy-MM-dd'));
   }
 }
