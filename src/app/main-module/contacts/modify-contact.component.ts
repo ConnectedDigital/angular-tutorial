@@ -44,10 +44,10 @@ export class ModifyContactComponent {
   }
 
   delete() {
-    this.calendarService.getCalendarContacts();
-    this.contactService.deleteContact(this._contact.$key);
-    this.calendarService.deleteAllCalendarContact(this._contact.$key);
-    this.avatarService.deleteAvatar(this._contact.$key);
+    // this.calendarService.getCalendarContacts();
+    // this.contactService.deleteContact(this._contact.$key);
+    // this.calendarService.deleteAllCalendarContact(this._contact.$key);
+    // this.avatarService.deleteAvatar(this._contact.$key);
     this.router.navigateByUrl('/contacts');
   }
 }

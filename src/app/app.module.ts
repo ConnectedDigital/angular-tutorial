@@ -13,7 +13,8 @@ import {
   InputTextModule,
   ListboxModule,
   OverlayPanelModule,
-  DataListModule
+  DataListModule,
+  TabMenuModule
 } from 'primeng/primeng';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
