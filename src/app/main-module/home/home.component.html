@@ -3,11 +3,10 @@
     <li *ngFor="let contact of calendarService.selectedContactsByDate">
 
       {{contact.title}}
-      <avatar-component [key]="contact.id" [avatarSize]="50"></avatar-component>
+      <avatar-component [key]="contact.parentKey" [avatarSize]="50"></avatar-component>
     </li>
   </ul>
 
-<button class="ui-rating-star" (click)="sendEmails()">Send Emails</button>
 
 
 

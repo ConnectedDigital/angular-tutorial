@@ -8,7 +8,7 @@
       <div *ngIf="contactDetailsVisible==true">
 
         <div class="ui-grid-row">
-          <div class="ui-grid-col-6"><avatar-component [key]="calendarContact.id" [avatarSize]="50"></avatar-component></div>
+          <div class="ui-grid-col-6"><avatar-component [key]="calendarContact.parentKey" [avatarSize]="50"></avatar-component></div>
           <div class="ui-grid-col-12"><input type="text" id="title" pInputText [disabled]="true" [(ngModel)]="calendarContact.title"/></div>
         </div>
 
