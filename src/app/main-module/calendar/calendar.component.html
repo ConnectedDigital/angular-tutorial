@@ -1,4 +1,4 @@
-<div>
+<div class="text-center">
   <p-schedule [events]="calendarService.calendarContacts|async" [header]="header" defaultDate="2016-01-12"
               [eventLimit]="4" [editable]="true"
               (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"></p-schedule>
@@ -6,13 +6,12 @@
   <p-dialog header="Contact Details" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade" [modal]="false">
     <div class="ui-grid ui-grid-responsive ui-fluid">
       <div *ngIf="contactDetailsVisible==true">
+
         <div class="ui-grid-row">
-          <div class="ui-grid-col-6"><label for="title">Contact</label></div>
-          <div class="ui-grid-col-12"><input pInputText id="title" [(ngModel)]="calendarContact.title"/></div>
+          <div class="ui-grid-col-6"><avatar-component [key]="calendarContact.id" [avatarSize]="50"></avatar-component></div>
+          <div class="ui-grid-col-12"><input type="text" id="title" pInputText [disabled]="true" [(ngModel)]="calendarContact.title"/></div>
         </div>
-        <div class="ui-grid-row">
-          <avatar-component [key]="calendarContact.id" [avatarSize]="50"></avatar-component>
-        </div>
+
       </div>
       <div class="ui-grid-row">
         <div class="ui-grid-col-6"><label for="start">Start</label></div>
@@ -28,40 +27,33 @@
       </div>
     </div>
 
-    <div>
-      <div *ngIf="contactDetailsVisible==true" class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-        <button type="button" pButton icon="fa-close" (click)="deleteContact()" label="Delete Contact"></button>
-        <button type="button" pButton icon="fa-check" (click)="editContact()" label="Save Contact"></button>
+
+      <div  class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+        <button *ngIf="contactDetailsVisible==true" type="button" pButton icon="fa-close" (click)="deleteContact()" label="Delete"></button>
+        <button *ngIf="contactDetailsVisible==true" type="button" pButton icon="fa-check" (click)="editContact()" label="Save"></button>
+        <button type="button" pButton icon="fa-check" (click)="showAddContactDialog()" label="Add"></button>
       </div>
-      <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-        <button type="button" pButton icon="fa-check" (click)="showAddContactDialog()" label="Add Contact"></button>
-      </div>
-    </div>
+
+
 
 
   </p-dialog>
 
-  <div *ngIf="addContactDialogVisible==true">
-    <h3>Pick Contact</h3>
-    <p-listbox [options]="contactService.contacts|async"
+  <p-dialog [(visible)]="addContactDialogVisible" [responsive]="true" showEffect="fade" [modal]="false">
+    <p>Select Contact</p>
+    <p-listbox [options]="contactService.mappedContacts" [ngModel]="showContact"
                [style]="{'width':'250px','max-height':'250px'}">
       <template let-c>
-        <div class="ui-helper-clearfix">
-          <avatar-component [key]="c.$key" [avatarSize]="50"
+        <div class="ui-helper-clearfix" (click)="selectContact(c)">
+          <avatar-component [key]="c.label" [avatarSize]="50"
                             style="display:inline-block;margin:5px 0 0 5px"></avatar-component>
-          <div style="font-size:15px;float:right;margin:15px 10px 0 0">{{c.name}} {{c.surname}}</div>
+          <div style="font-size:15px;float:right;margin:15px 10px 0 0">{{c.value}}</div>
         </div>
       </template>
-      <button pButton type="text" (click)="send()" icon="fa-check" label="Upload"></button>
     </p-listbox>
-  </div>
 
+    <button pButton type="text" (click)="send()" label="Send"></button>
 
-<button (click)="send()">Send</button>
-
-
-
+  </p-dialog>
 
 </div>
-
-

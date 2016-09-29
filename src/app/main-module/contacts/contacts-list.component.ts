@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   template: require('./templates/contacts-list.component.html')
 })
 export class ContactListComponent implements OnInit {
-  selectedContact: ContactWithKey = null;
+  calendarContact = null;
   avatarSizeChoise = [50, 200];
   avatarSize = this.avatarSizeChoise[0];
 
@@ -19,7 +19,7 @@ export class ContactListComponent implements OnInit {
   }
 
   onSelect(selectedContact: ContactWithKey) {
-    this.selectedContact = selectedContact;
+    this.calendarContact = selectedContact;
   }
 
   addNewContact() {

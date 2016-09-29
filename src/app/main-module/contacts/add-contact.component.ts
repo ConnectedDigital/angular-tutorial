@@ -12,7 +12,7 @@ import { AvatarService } from '../common/services/avatar.service';
 export class AddContactComponent {
   placesOfBirt = ['Rzeszow', 'Warsaw',
     'Super Hot', 'Weather Changer'];
-  contact = new Contact(null, null, null, null);
+  contact = new Contact();
   submitted = false;
   active = true;
 
@@ -27,7 +27,12 @@ export class AddContactComponent {
 
   addNewContact(name: string, surname: string, tel: number, birth: string) {
     event.preventDefault();
-    let contact: Contact = {name: name, surname: surname, tel: tel, birth: birth};
+    let contact = new Contact();
+    contact.name=name;
+    contact.surname=surname;
+    contact.tel=tel;
+    contact.birth=birth;
+    // = {name: name, surname: surname, tel: tel, birth: birth};
     this.active = false;
     console.log(contact);
     this.contactService.insertContact(contact);

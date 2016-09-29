@@ -11,7 +11,9 @@ import {
   AccordionModule,
   ToggleButtonModule,
   InputTextModule,
-  ListboxModule
+  ListboxModule,
+  OverlayPanelModule,
+  DataListModule
 } from 'primeng/primeng';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
@@ -70,7 +72,7 @@ export const firebaseConfig = {
     DialogModule,
     CalendarModule,
     ButtonModule,
-    ToggleButtonModule, AccordionModule,ListboxModule
+    ToggleButtonModule, AccordionModule,ListboxModule,OverlayPanelModule,DataListModule
   ],
   exports: [
     ContactListComponent, ModifyContactComponent,
