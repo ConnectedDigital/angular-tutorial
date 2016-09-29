@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
-import { ContactWithKey } from './models/contact.model';
-import { AvatarService } from '../common/services/avatar.service';
-import { ContactService } from '../common/services/contact.service';
-import { Router } from '@angular/router';
-import { CalendarService } from '../common/services/calendar.service';
+import {Component, Input} from '@angular/core';
+import {ContactWithKey} from './models/contact.model';
+import {AvatarService} from '../common/services/avatar.service';
+import {ContactService} from '../common/services/contact.service';
+import {Router} from '@angular/router';
+import {CalendarService} from '../common/services/calendar.service';
 @Component({
   selector: 'modify-contact-component',
   template: require('./templates/modify-contact.component.html')

@@ -17,16 +17,16 @@ export class ContactService {
       .subscribe(data => console.log(data));
   }
 
-  // getMappedContacts() {
-  //   this.mappedContacts = [];
-  //   this.af.database.list('data/contacts').map(val => {
-  //     return val.map((contact) => {
-  //       return {label: contact.$key, value: contact.name + ' ' + contact.surname};
-  //     });
-  //   }).subscribe(data => {
-  //     this.mappedContacts = data;
-  //   });
-  // }
+  getMappedContacts() {
+    this.mappedContacts = [];
+    this.af.database.list('data/contacts').map(val => {
+      return val.map((contact) => {
+        return {label: contact.$key, value: contact.name + ' ' + contact.surname};
+      });
+    }).subscribe(data => {
+      this.mappedContacts = data;
+    });
+  }
 
   insertContact(contact: Contact) {
     this.contacts.push(contact);
