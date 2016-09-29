@@ -1,3 +1,13 @@
-<div>
-  <h1>Home</h1>
-</div>
+<h3>Todays Contacts</h3>
+  <ul>
+    <li *ngFor="let contact of calendarService.selectedContactsByDate">
+
+      {{contact.title}}
+      <avatar-component [key]="contact.id" [avatarSize]="50"></avatar-component>
+    </li>
+  </ul>
+
+<button class="ui-rating-star" (click)="sendEmails()">Send Emails</button>
+
+
+

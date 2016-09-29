@@ -6,6 +6,7 @@
 
 import 'jquery';
 import '../node_modules/moment/moment';
+import '../node_modules/moment-range/dist/moment-range';
 import '../node_modules/fullcalendar';
 import '../node_modules/jquery-ui-bundle/jquery-ui';
 import '@angular/platform-browser';

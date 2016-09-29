@@ -2,7 +2,6 @@ import {Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import {CalendarService} from '../common/services/calendar.service';
 import {SimplyCalendarModel} from './calendar.model';
 import {ContactService} from '../common/services/contact.service';
-import {ContactWithKey} from '../contacts/models/contact.model';
 import {SelectItem} from '../../../assets/primeng/components/common/api';
 @Component({
   selector: 'calendar-component',
@@ -10,16 +9,13 @@ import {SelectItem} from '../../../assets/primeng/components/common/api';
 })
 
 export class CalendarComponent implements OnInit {
-
-  con: SelectItem[];
-
   header: any;
   dialogVisible: boolean = false;
   contactDetailsVisible: boolean = false;
   addContactDialogVisible: boolean = false;
   calendarContact: SimplyCalendarModel;
-  pickContact: ContactWithKey;
-
+  showContact: string='Pick Contact';
+  selectedContact: SelectItem;
   constructor(private calendarService: CalendarService,
               private cd: ChangeDetectorRef,
               private contactService: ContactService) {
@@ -27,9 +23,8 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit() {
     this.calendarService.getCalendarContacts();
-    this.contactService.getContacts();
+    this.contactService.getMappedContacts();
     this.calendarContact = new SimplyCalendarModel();
-
     this.header = {
       left: 'prev,next today',
       center: 'title',
@@ -38,15 +33,16 @@ export class CalendarComponent implements OnInit {
   }
 
   handleDayClick(e) {
-    this.calendarContact= new SimplyCalendarModel();
-    this.calendarContact.start=e.date.format();
-    this.calendarContact.end='';
+    this.calendarContact = new SimplyCalendarModel();
+    this.calendarContact.start = e.date.format();
+    this.calendarContact.end = e.date.format();
     this.contactDetailsVisible=false;
     this.dialogVisible = true;
     this.cd.detectChanges();
   }
 
   handleEventClick(e) {
+    this.calendarContact = new SimplyCalendarModel();
     this.contactDetailsVisible=true;
     let start = e.calEvent.start;
     let end = e.calEvent.end;
@@ -79,15 +75,23 @@ export class CalendarComponent implements OnInit {
     this.addContactDialogVisible = true;
   }
 
+  selectContact(contact:SelectItem){
+    this.selectedContact=contact;
+    this.showContact=contact.value;
+  }
+
   send() {
-    var model = new SimplyCalendarModel();
-    model.end = '2016-01-03';
-    model.start = '2016-01-01';
-    model.id =  '-KSSmfG-A-hsQZR_lEWN';
-    model.title = 'test lol';
+
+    let model = new SimplyCalendarModel();
+    model.id =  this.selectedContact.label;
+    model.title = this.selectedContact.value;
+    model.end = this.calendarContact.end;
+    model.start = this.calendarContact.start;
     this.calendarService.insertCalendarContact(model);
     this.addContactDialogVisible=false;
     this.dialogVisible = false;
     this.contactDetailsVisible = false;
   }
+
+
 }
