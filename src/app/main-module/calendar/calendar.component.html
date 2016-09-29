@@ -39,21 +39,21 @@
 
   </p-dialog>
 
-  <p-dialog [(visible)]="addContactDialogVisible" [responsive]="true" showEffect="fade" [modal]="false">
-    <p>Select Contact</p>
-    <p-listbox [options]="contactService.mappedContacts" [ngModel]="showContact"
-               [style]="{'width':'250px','max-height':'250px'}">
-      <template let-c>
-        <div class="ui-helper-clearfix" (click)="selectContact(c)">
-          <avatar-component [key]="c.label" [avatarSize]="50"
-                            style="display:inline-block;margin:5px 0 0 5px"></avatar-component>
-          <div style="font-size:15px;float:right;margin:15px 10px 0 0">{{c.value}}</div>
-        </div>
-      </template>
-    </p-listbox>
+  <!--<p-dialog [(visible)]="addContactDialogVisible" [responsive]="true" showEffect="fade" [modal]="false">-->
+    <!--<p>Select Contact</p>-->
+    <!--<p-listbox [options]="contactService.mappedContacts" [ngModel]="showContact"-->
+               <!--[style]="{'width':'250px','max-height':'250px'}">-->
+      <!--<template let-c>-->
+        <!--<div class="ui-helper-clearfix" (click)="selectContact(c)">-->
+          <!--<avatar-component [key]="c.label" [avatarSize]="50"-->
+                            <!--style="display:inline-block;margin:5px 0 0 5px"></avatar-component>-->
+          <!--<div style="font-size:15px;float:right;margin:15px 10px 0 0">{{c.value}}</div>-->
+        <!--</div>-->
+      <!--</template>-->
+    <!--</p-listbox>-->
 
-    <button pButton type="text" (click)="send()" label="Send"></button>
+    <!--<button pButton type="text" (click)="send()" label="Send"></button>-->
 
-  </p-dialog>
+  <!--</p-dialog>-->
 
 </div>
