@@ -1,3 +1,21 @@
-<div>
-  <h1>Home</h1>
-</div>
+<h3>Todays Contacts</h3>
+  <ul>
+    <li *ngFor="let contact of calendarService.todaysCalendarContacts">
+
+      {{contact.title}}
+      <avatar-component [key]="contact.parentKey" [avatarSize]="50"></avatar-component>
+    </li>
+  </ul>
+
+<h3>Tomorows Contacts</h3>
+<ul>
+  <li *ngFor="let contact of calendarService.tomorowsCalendarContacts">
+
+    {{contact.title}}
+    <avatar-component [key]="contact.parentKey" [avatarSize]="50"></avatar-component>
+  </li>
+</ul>
+
+
+
+

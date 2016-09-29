@@ -1,39 +1,59 @@
-<div>
-  <p-schedule [events]="events" [header]="header" defaultDate="2016-01-12" [eventLimit]="4" [editable]="true"
+<div class="text-center">
+  <p-schedule [events]="calendarService.calendarContacts|async" [header]="header" defaultDate="2016-01-12"
+              [eventLimit]="4" [editable]="true"
               (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"></p-schedule>
 
-  <p-dialog header="Event Details" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade" [modal]="false">
-    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="event">
-      <div class="ui-grid-row">
-        <div class="ui-grid-col-4" id="vin"><label for="vin">Title</label></div>
-        <div class="ui-grid-col-8"><input pInputText id="title" [(ngModel)]="event.title"/></div>
+  <p-dialog header="Contact Details" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade" [modal]="false">
+    <div class="ui-grid ui-grid-responsive ui-fluid">
+      <div *ngIf="contactDetailsVisible==true">
+
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-6"><avatar-component [key]="calendarContact.parentKey" [avatarSize]="50"></avatar-component></div>
+          <div class="ui-grid-col-12"><input type="text" id="title" pInputText [disabled]="true" [(ngModel)]="calendarContact.title"/></div>
+        </div>
+
       </div>
       <div class="ui-grid-row">
-        <div class="ui-grid-col-4"><label for="start">Start</label></div>
-        <div class="ui-grid-col-8">
-          <p-calendar id="start" dateFormat="yy-mm-dd" [(ngModel)]="event.start"></p-calendar>
+        <div class="ui-grid-col-6"><label for="start">Start</label></div>
+        <div class="ui-grid-col-12">
+          <p-calendar id="start" dateFormat="yy-mm-dd" [(ngModel)]="calendarContact.start"></p-calendar>
         </div>
       </div>
       <div class="ui-grid-row">
-        <div class="ui-grid-col-4"><label for="end">End</label></div>
-        <div class="ui-grid-col-8">
-          <p-calendar id="end" dateFormat="yy-mm-dd" [(ngModel)]="event.end" defaultDate="2016-01-01"
-                      placeholder="Optional"></p-calendar>
-        </div>
-      </div>
-      <div class="ui-grid-row">
-        <div class="ui-grid-col-4" id="allday"><label for="allday">All Day</label></div>
-        <div class="ui-grid-col-8">
-          <p-toggleButton [(ngModel)]="event.allDay" onLabel="Yes" offLabel="No"></p-toggleButton>
-        </div>
+        <div class="ui-grid-col-6"><label for="end">End</label></div>
+        <div class="ui-grid-col-12">
+          <p-calendar id="end" dateFormat="yy-mm-dd" [(ngModel)]="calendarContact.end" defaultDate="2016-01-07"
+                      placeholder="Optional"></p-calendar></div>
       </div>
     </div>
-    <footer>
-      <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-        <button type="button" pButton icon="fa-close" (click)="deleteEvent()" label="Delete"></button>
-        <button type="button" pButton icon="fa-check" (click)="saveEvent()" label="Save"></button>
-      </div>
-    </footer>
-  </p-dialog>
-</div>
 
+
+      <div  class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+        <button *ngIf="contactDetailsVisible==true" type="button" pButton icon="fa-close" (click)="deleteContact()" label="Delete"></button>
+        <button *ngIf="contactDetailsVisible==true" type="button" pButton icon="fa-check" (click)="editContact()" label="Save"></button>
+        <button type="button" pButton icon="fa-check" (click)="showAddContactDialog()" label="Add"></button>
+      </div>
+
+
+
+
+  </p-dialog>
+
+  <p-dialog [(visible)]="addContactDialogVisible" [responsive]="true" showEffect="fade" [modal]="false">
+    <p>Select Contact</p>
+    <p-listbox [options]="contactService.mappedContacts" [ngModel]="showContact"
+               [style]="{'width':'250px','max-height':'250px'}">
+      <template let-c>
+        <div class="ui-helper-clearfix" (click)="selectContact(c)">
+          <avatar-component [key]="c.label" [avatarSize]="50"
+                            style="display:inline-block;margin:5px 0 0 5px"></avatar-component>
+          <div style="font-size:15px;float:right;margin:15px 10px 0 0">{{c.value}}</div>
+        </div>
+      </template>
+    </p-listbox>
+
+    <button pButton type="text" (click)="send()" label="Send"></button>
+
+  </p-dialog>
+
+</div>

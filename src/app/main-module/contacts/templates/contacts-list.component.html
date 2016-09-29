@@ -1,4 +1,4 @@
-<div *ngIf="selectedContact==null">
+<div *ngIf="calendarContact==null">
 
   <div class="form-group">
     <select class="form-control"
@@ -9,18 +9,16 @@
   </div>
 
   <ul>
-    <li *ngFor="let contact of contactService.contacts | async" [class.clicked]="contact === selectedContact"
+    <li *ngFor="let contact of contactService.contacts|async"
         (click)="onSelect(contact)">
       {{contact.name}} {{contact.surname}}
       <avatar-component [key]="contact.$key" [avatarSize]="avatarSize"></avatar-component>
     </li>
   </ul>
-
-
 </div>
 
-<button *ngIf="selectedContact==null" (click)="addNewContact()">Add new contact</button>
-<modify-contact-component *ngIf="selectedContact!=null" [selectedContact]="selectedContact"
+<button *ngIf="calendarContact==null" (click)="addNewContact()">Add new contact</button>
+<modify-contact-component *ngIf="calendarContact!=null" [selectedContact]="calendarContact"
                           [avatarSize]="avatarSize"></modify-contact-component>
 
 

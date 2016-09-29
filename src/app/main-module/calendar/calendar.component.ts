@@ -1,45 +1,30 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CalendarService } from '../common/services/calendar.service';
+import { SimplyCalendarModel } from './calendar.model';
+import { ContactService } from '../common/services/contact.service';
+import { SelectItem } from '../../../assets/primeng/components/common/api';
 @Component({
   selector: 'calendar-component',
   template: require('./calendar.component.html'),
 })
 export class CalendarComponent implements OnInit {
-  events: any[];
   header: any;
-  event: MyEvent;
   dialogVisible: boolean = false;
-  idGen: number = 100;
+  contactDetailsVisible: boolean = false;
+  addContactDialogVisible: boolean = false;
+  calendarContact: SimplyCalendarModel;
+  showContact: string = 'Pick Contact';
+  selectedContact: SelectItem;
 
-  constructor(private calendarService: CalendarService, private cd: ChangeDetectorRef) {
+  constructor(private calendarService: CalendarService,
+              private cd: ChangeDetectorRef,
+              private contactService: ContactService) {
   }
 
   ngOnInit() {
-// this.calendarService.getEvents().then(events => {this.events = events;});
-    this.events = [
-      {
-        'title': 'All Day Event',
-        'start': '2016-01-01'
-      },
-      {
-        'title': 'Long Event',
-        'start': '2016-01-07',
-        'end': '2016-01-10'
-      },
-      {
-        'title': 'Repeating Event',
-        'start': '2016-01-09T16:00:00'
-      },
-      {
-        'title': 'Repeating Event',
-        'start': '2016-01-16T16:00:00'
-      },
-      {
-        'title': 'Conference',
-        'start': '2016-01-11',
-        'end': '2016-01-13'
-      }
-    ];
+    this.calendarService.getCalendarContacts();
+    this.contactService.getMappedContacts();
+    this.calendarContact = new SimplyCalendarModel();
     this.header = {
       left: 'prev,next today',
       center: 'title',
@@ -47,19 +32,18 @@ export class CalendarComponent implements OnInit {
     };
   }
 
-  handleDayClick(event) {
-    this.event = new MyEvent();
-    this.event.start = event.date.format();
+  handleDayClick(e) {
+    this.calendarContact = new SimplyCalendarModel();
+    this.calendarContact.start = e.date.format();
+    this.calendarContact.end = e.date.format();
+    this.contactDetailsVisible = false;
     this.dialogVisible = true;
-    this.dialogVisible = true;
-    // trigger detection manually as somehow only moving the
-    // mouse quickly after click triggers the automatic detection
     this.cd.detectChanges();
   }
 
   handleEventClick(e) {
-    this.event = new MyEvent();
-    this.event.title = e.calEvent.title;
+    this.calendarContact = new SimplyCalendarModel();
+    this.contactDetailsVisible = true;
     let start = e.calEvent.start;
     let end = e.calEvent.end;
     if (e.view.name === 'month') {
@@ -67,56 +51,47 @@ export class CalendarComponent implements OnInit {
     }
     if (end) {
       end.stripTime();
-      this.event.end = end.format();
+      this.calendarContact.end = end.format();
+    } else {
+      this.calendarContact.end = start.format();
     }
-    this.event.id = e.calEvent.id;
-    this.event.start = start.format();
-    this.event.allDay = e.calEvent.allDay;
+    this.calendarContact.$key = e.calEvent.$key;
+    this.calendarContact.parentKey = e.calEvent.parentKey;
+    this.calendarContact.title = e.calEvent.title;
+    this.calendarContact.start = start.format();
     this.dialogVisible = true;
   }
 
-  saveEvent() {
-    if (this.event.id) {
-      let index: number = this.findEventIndexById(this.event.id);
-      if (index >= 0) {
-        this.events[index] = this.event;
-      }
-    } else {
-      this.event.id = this.idGen;
-      this.events.push(this.event);
-      this.event = null;
-    }
+  editContact() {
+    this.calendarService.updateCalendarContact(this.calendarContact);
+    this.calendarService.getCalendarContacts();
     this.dialogVisible = false;
   }
 
-  deleteEvent() {
-    let index: number = this.findEventIndexById(this.event.id);
-    if (index >= 0) {
-      this.events.splice(index, 1);
-    }
+  deleteContact() {
     this.dialogVisible = false;
+    this.calendarService.deleteCalendarContact(this.calendarContact.$key);
   }
 
-  findEventIndexById(id: number) {
-    let index = -1;
-    for (let i = 0; i < this.events.length; i++) {
-      if (id === this.events[i].id) {
-        index = i;
-        break;
-      }
-    }
-    return index;
+  showAddContactDialog() {
+    this.dialogVisible = false;
+    this.addContactDialogVisible = true;
+  }
+
+  selectContact(contact: SelectItem) {
+    this.selectedContact = contact;
+    this.showContact = contact.value;
+  }
+
+  send() {
+    let model = new SimplyCalendarModel();
+    model.parentKey = this.selectedContact.label;
+    model.title = this.selectedContact.value;
+    model.end = this.calendarContact.end;
+    model.start = this.calendarContact.start;
+    this.calendarService.insertCalendarContact(model);
+    this.addContactDialogVisible = false;
+    this.dialogVisible = false;
+    this.contactDetailsVisible = false;
   }
 }
-export class MyEvent {
-  id: number;
-  title: string;
-  start: string;
-  end: string;
-  allDay: boolean = true;
-}
-
-
-
-
-

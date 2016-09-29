@@ -3,7 +3,8 @@ node_modules/
 typings/
 *.map
 .idea/
-src/**/*.js
+src/app/**/*.js
+src/*.js
 *.ini
 *.css
 

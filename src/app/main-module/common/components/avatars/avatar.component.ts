@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { AvatarService } from '../../services/avatar.service';
-import any = jasmine.any;
 @Component({
   template: require('./avatar.component.html'),
   selector: 'avatar-component',
@@ -16,7 +15,7 @@ export class AvatarComponent {
     this.avatarService.getAvatar(_key)
       .then(url => {
         this.avatar = url;
-      }, error => console.log('Avatar not found'));
+      }, error => this.avatar = '');
   }
 
   @Input() set avatarSize(_size: number) {

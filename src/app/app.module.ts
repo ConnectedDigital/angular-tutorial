@@ -10,11 +10,14 @@ import {
   ButtonModule,
   AccordionModule,
   ToggleButtonModule,
-  InputTextModule
+  InputTextModule,
+  ListboxModule,
+  OverlayPanelModule,
+  DataListModule,
+  TabMenuModule
 } from 'primeng/primeng';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { AngularFireModule } from 'angularfire2';
 import { ENV_PROVIDERS } from './environment';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InteralStateType } from './app.service';
@@ -29,7 +32,7 @@ import { CalendarComponent } from './main-module/calendar/calendar.component';
 import { AddContactComponent } from './main-module/contacts/add-contact.component';
 import { ModifyContactComponent } from './main-module/contacts/modify-contact.component';
 import { ContactListComponent } from './main-module/contacts/contacts-list.component';
-
+import { AngularFireModule } from 'angularfire2';
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState
@@ -44,8 +47,9 @@ export const firebaseConfig = {
   apiKey: 'AIzaSyBwb-_vmNtgtOWiTEjQ5inxzmZufAPjUzw',
   authDomain: 'todo-fab5e.firebaseapp.com',
   databaseURL: 'https://todo-fab5e.firebaseio.com',
-  storageBucket: 'todo-fab5e.appspot.com',
+  storageBucket: 'todo-fab5e.appspot.com'
 };
+
 
 @NgModule({
   bootstrap: [App],
@@ -53,9 +57,10 @@ export const firebaseConfig = {
     App, ContactListComponent, ModifyContactComponent,
     Home, AvatarComponent, AddContactComponent, CalendarComponent
   ],
-  imports: [AngularFireModule.initializeApp(firebaseConfig),
-    InputTextModule,
+  imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    InputTextModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTER_CONFIG),
@@ -68,7 +73,7 @@ export const firebaseConfig = {
     DialogModule,
     CalendarModule,
     ButtonModule,
-    ToggleButtonModule, AccordionModule
+    ToggleButtonModule, AccordionModule, ListboxModule, OverlayPanelModule, DataListModule
   ],
   exports: [
     ContactListComponent, ModifyContactComponent,
