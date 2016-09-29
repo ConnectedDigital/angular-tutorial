@@ -15,7 +15,7 @@ export class AvatarComponent {
     this.avatarService.getAvatar(_key)
       .then(url => {
         this.avatar = url;
-      }, error => this.avatar='');
+      }, error => this.avatar = '');
   }
 
   @Input() set avatarSize(_size: number) {

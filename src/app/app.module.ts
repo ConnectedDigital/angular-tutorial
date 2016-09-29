@@ -31,7 +31,7 @@ import { CalendarComponent } from './main-module/calendar/calendar.component';
 import { AddContactComponent } from './main-module/contacts/add-contact.component';
 import { ModifyContactComponent } from './main-module/contacts/modify-contact.component';
 import { ContactListComponent } from './main-module/contacts/contacts-list.component';
-import {AngularFireModule} from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState
@@ -72,7 +72,7 @@ export const firebaseConfig = {
     DialogModule,
     CalendarModule,
     ButtonModule,
-    ToggleButtonModule, AccordionModule,ListboxModule,OverlayPanelModule,DataListModule
+    ToggleButtonModule, AccordionModule, ListboxModule, OverlayPanelModule, DataListModule
   ],
   exports: [
     ContactListComponent, ModifyContactComponent,
